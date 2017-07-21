@@ -20,16 +20,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
     // Database Name
-    private static final String DATABASE_NAME = "eventMosaicQuestion";
+    private static final String DATABASE_NAME = "EventMosaicQuestion";
     // tasks table name
     private static final String TABLE_QUEST = "quest";
     // tasks Table Columns names
 
-    private static final String KEY_ID = "id";
-    private static final String KEY_QUESTION = "question";
-    private static final String KEY_CATEGORY = "CATEOGORY";
-    private static final String KEY_QUESTIONNUMBER = "questionid";
-    private static final String KEY_OPTION = "option"; //option c
+    private static final String KEY_ID = "ID";
+    private static final String KEY_QUESTION = "QUESTION";
+    private static final String KEY_CATEGORY = "CATEGORY";
+    private static final String KEY_QUESTIONNUMBER = "QUESTION_ID";
+    private static final String KEY_OPTION = "OPTION"; //option c
 
     private SQLiteDatabase dbase;
 
