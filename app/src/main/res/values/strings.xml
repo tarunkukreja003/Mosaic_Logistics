@@ -1,0 +1,225 @@
+<resources>
+    <string name="app_name">Event Mosaic for Event Services</string>
+    <string name="title_activity_nav_bar">NavBarActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="event_setup">Event Setup</string>
+    <string name="venue_booking">Venue Booking</string>
+    <string name="transportation">Transportation</string>
+    <string name="security">Security</string>
+    <string name="merchandise">Merchandise</string>
+    <string name="food_beverage">Food Beverages</string>
+    <string name="event_management">Event Management</string>
+    <string name="starting_at_text">Starting at just Rs.</string>
+    <string name="buying_text">Buying</string>
+    <string name="rent_text">Rent</string>
+    <string name="designing_printing">Designing, Printing</string>
+    <string name="package_text">Packages starting at just Rs.</string>
+
+    <string name="title_activity_nav_drawer_actvity">NavDrawerActvity</string>
+
+
+    <string name="are_you_a_vendor">ARE YOU A VENDOR ?</string>
+    <string name="saved_to_wishList">"Saved to WishList"</string>
+    <string name="no_internet_connection">"Oops! no internet connection!!"</string>
+    <string name="internet_connection">"Connected to Internet"</string>
+    <string name="please_select_atleast_one_catgory">Please select atleast one category !!</string>
+    <string name="logout">Logout</string>
+    <string name="previous_chat">Previous Chat</string>
+    <string name="clear_chat">Clear Chat</string>
+    <string name="are_you_a_user">ARE YOU A USER ?</string>
+    <string name="event">EVENT MOSAIC</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="join_us_using">JOIN US USING</string>
+    <string name="facebook">FACEBOOK</string>
+    <string name="mosaic">MOSAIC</string>
+    <string name="more_info">MORE INFO</string>
+    <string name="markitier">MARKITIER</string>
+    <string name="beach_house_party">Beach House Party</string>
+    <string name="bondi_beach">Bondi Beach</string>
+    <string name="call_the_vendor">CALL THE VENDOR</string>
+    <string name="send_me_an_email">SEND ME AN EMAIL</string>
+    <string name="markitier_is_a_360_degree_marketing">Markitier is a 360 degree marketing</string>
+    <string name="guidlines">Guidlines</string>
+    <string name="guidlines_instruction">These are guidlines for event planning.</string>
+    <string name="lets_go">LET\'S GO</string>
+    <string name="carousel_title_one">EVENT DISCOVERY</string>
+    <string name="carousel_title_two">EVENT VOLUNTEERING</string>
+    <string name="carousel_title_three">EVENT SERVICES</string>
+    <string name="carousel_title_four">EVENT MANAGEMENT</string>
+    <string name="carousel_title_five">FIND SPEAKER AND ARTIST</string>
+    <string name="carousel_title_six">FIND SPONSOR</string>
+    <string name="carousel_title_seven">ENJOY THE EXPERIENCE</string>
+
+    <string name="carousel_description_one">Event management is the application of project management to the creation.</string>
+    <string name="carousel_description_two">Event management is the application of project management to the creation.</string>
+    <string name="carousel_description_three">Event management is the application of project management to the creation.</string>
+    <string name="carousel_description_four">Event management is the application of project management to the creation.</string>
+    <string name="carousel_description_five">Event management is the application of project management to the creation.</string>
+    <string name="event_collateral">Event Collateral</string>
+    <string name="event_collateral_instruction">Flex , banners , posters etc.</string>
+
+    <string name="event_coverage">Event Coverage</string>
+    <string name="event_coverage_instruction">Photographer</string>
+    <string name="guidelines_dummy">A guideline is a statement by which to determine a course of action. A guideline aims to streamline particular processes according to a set routine or sound practice. By definition, following a guideline is never mandatory. Guidelines are not binding and are not enforced.
+        Guidelines may be issued by and used by any organization (governmental or private) to make the actions of its employees or divisions more predictable, and presumably of higher quality.A guideline is a statement by which to determine a course of action. A guideline aims to streamline particular processes according to a set routine or sound practice. By definition, following a guideline is never mandatory. Guidelines are not binding and are not enforced.
+        Guidelines may be issued by and used by any organization (governmental or private) to make the actions of its employees or divisions more predictable, and presumably of higher quality.A guideline is a statement by which to determine a course of action. A guideline aims to streamline particular processes according to a set routine or sound practice. By definition, following a guideline is never mandatory. Guidelines are not binding and are not enforced.
+        </string>
+    <string name="title_activity_event_man">EventManActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_your_events">YourEventsActivity</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+
+
+
+
+    <string name="Singer">Singer</string>
+    <string name="Dancer">Dancer</string>
+    <string name="Painter">Painter</string>
+    <string name="Theatre_Artist">Theatre Artist</string>
+    <string name="Actor">Actor</string>
+    <string name="Models">Models</string>
+    <string name="Rappers">Rappers</string>
+    <string name="Radio_Jockey">Radio Jockey</string>
+    <string name="Comedian">Comedian</string>
+    <string name="Fashion_Stylist">Fashion Stylist</string>
+
+    <string name="happy_to_help">Hope You are \n Happy with our Help</string>
+    <string name="interested">INTERESTED</string>
+    <string name="share">SHARE</string>
+    <string name="location">LOCATION</string>
+    <string name="show_on_maps">SHOW ON MAPS</string>
+    <string name="add_to_calender">ADD TO CALENDER</string>
+    <string name="events_details">EVENTS DETAILS</string>
+    <string name="read_more">READ MORE</string>
+    <string name="contact_organiser">CONTACT ORGANISER</string>
+    <string name="chat_with_organiser">CHAT WITH ORGANISER</string>
+    <string name="volunteer">VOLUNTEER</string>
+    <string name="become_a_speaker">BECOME A SPEAKER</string>
+    <string name="become_a_artist">BECOME AN ARTIST</string>
+    <string name="book">BOOK</string>
+    <string name="error">Error !! Try again later</string>
+    <string name="facebook_app_id">1577657108945364</string>
+    <string name="enter_your_message">Enter your message</string>
+    <string name="proceed">PROCEED</string>
+    <string name="select_your_interests">SELECT YOUR INTERESTS</string>
+    <string name="kids">Kids</string>
+    <string name="college_carnival">College Carnival</string>
+    <string name="workshops">Workshops</string>
+    <string name="theater">Theatre</string>
+    <string name="live_shows">Live Shows</string>
+    <string name="sports">Sports</string>
+    <string name="conferences_and_seminars">Conferences and Seminars</string>
+    <string name="startup_events">Startup Events</string>
+    <string name="social_events">Social Events</string>
+    <string name="meetups">Meetups</string>
+    <string name="club_and_restaurants">Club and Restaurants</string>
+    <string name="choose_your_event_category">Choose Your Event Category</string>
+    <string name="you_can_choose_a_maximum_of_1_category">You can choose a maximum of 1 category</string>
+    <string name="date">DATE</string>
+    <string name="travel">Travel</string>
+    <string name="concerts">Concerts</string>
+    <string name="music">Music</string>
+    <string name="splash_tagline">ONE STOP SOLUTION TO ALL YOUR EVENTS</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="contact">Contact</string>
+    <string name="facebook_profile">Facebook Profile</string>
+    <string name="instagram_profile">Instagram Username</string>
+    <string name="linkedin_profile">Linkedin Profile</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+
+</resources>

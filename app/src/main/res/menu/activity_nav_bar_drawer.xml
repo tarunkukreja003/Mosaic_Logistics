@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_event_setup"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/event_setup" />
+        <item
+            android:id="@+id/nav_transportation"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/transportation" />
+        <item
+            android:id="@+id/nav_venue_booking"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/venue_booking" />
+        <item
+            android:id="@+id/nav_merchandise"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/merchandise" />
+        <item
+            android:id="@+id/nav_security"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/security" />
+        <item
+            android:id="@+id/nav_food_beverage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/food_beverage" />
+        <item
+            android:id="@+id/nav_event_management"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/event_management" />
+
+    </group>
+
+</menu>
