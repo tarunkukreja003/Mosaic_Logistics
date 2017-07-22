@@ -10,7 +10,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by tarunkukreja on 22/07/17.
@@ -28,8 +29,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String KEY_ID = "ID";
     private static final String KEY_QUESTION = "QUESTION";
     private static final String KEY_CATEGORY = "CATEGORY";
-    private static final String KEY_QUESTIONNUMBER = "QUESTION_ID";
-    private static final String KEY_OPTION = "OPTION"; //option c
+    private static final String KEY_TOTALQUESTIONS = "TOTALQUESTIONS";
+
+    private static final String KEY_QUESTIONNUMBER = "QUESTIONNUMBER";
+
+    private static final String KEY_OPTION = "OPTION";
 
     private SQLiteDatabase dbase;
 
@@ -43,74 +47,115 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + " ( "
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_QUESTION
                 + " TEXT, " + KEY_CATEGORY
-                + " TEXT, " + KEY_QUESTIONNUMBER
-                + " TEXT, " + KEY_OPTION + " TEXT)";
+                + " TEXT, " + KEY_TOTALQUESTIONS
+                + " TEXT, " + KEY_OPTION
+                + " TEXT, " + KEY_QUESTIONNUMBER + " TEXT)";
         db.execSQL(sql);
         addQuestions();
+        addVideoGraphyData();
         //db.close();
     }
 
     private void addQuestions() {
 
-        String[] key1 = {"Photography", "Videography", "Event Shoot"};
-        int[] value1 = {2, 3, 4};
+
+        String[] key1 = {"Corporate Event", "Social Function", "College Event", "Other"};
+        int[] value1 = {2, 2, 2, 2};
 
 
-        Question q1 = new Question("Are you looking for?", "IT", "1", ADDQUESTION(key1, value1));
+        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1),"1");
         this.addQuestion(q1);
 
 
-        String[] key2 = {"option3", "option4", "option5"};
-        int[] value2 = {3, 4, 5};
+        String[] key2 = {"2 to 3 hours", "3 to 5 hours", "More than 5 hours"};
+        int[] value2 = {3, 3, 3};
 
 
-        Question q2 = new Question("Question 2?", "IT", "2", ADDQUESTION(key2, value2));
+        Question q2 = new Question("Duration of the Event ?", "Photography", "4", ADDQUESTION(key2, value2),"2");
         this.addQuestion(q2);
 
 
-        String[] key3 = {"option4", "option5", "option6"};
-        int[] value3 = {4, 5, 6};
+        String[] key3 = {"Silver (4000 to 6000)", "Gold (7000 to 10000)", "Premium (10000 and above) "};
+        int[] value3 = {4, 4, 4};
 
 
-        Question q3 = new Question("Question 3?", "IT", "3", ADDQUESTION(key3, value3));
+        Question q3 = new Question("Budget for Photography Service ?", "Photography", "4", ADDQUESTION(key3, value3),"3");
         this.addQuestion(q3);
 
-        String[] key4 = {"option5", "option6", "option7"};
-        int[] value4 = {5, 6, 7};
+        String[] key9 = {"Immediately", "Within a month", "Not sure"};
+        int[] value9 = {100,100,100};
 
 
-        Question q4 = new Question("Question 4?", "IT", "4", ADDQUESTION(key4, value4));
+        Question q9 = new Question("How soon do  you need it ?", "Photography", "4", ADDQUESTION(key9, value9),"4");
+        this.addQuestion(q9);
+
+
+    }
+
+    private void addVideoGraphyData() {
+
+
+
+
+        String[] key4 = {"Wedding", "Social Function", "Corporate Event"};
+        int[] value4 = {2, 2, 2};
+
+
+        Question q4 = new Question("What kind of party ?", "Videography", "6", ADDQUESTION(key4, value4),"1");
         this.addQuestion(q4);
 
-        String[] key5 = {"option6", "option7", "option8"};
-        int[] value5 = {6, 7, 8};
+        String[] key5 = {"No I just want pictures (Starting from 5000)", "Yes I want both videos and pictures (Starting from 150000)"};
+        int[] value5 = {3, 4};
 
 
-        Question q5 = new Question("Question 5?", "IT", "5", ADDQUESTION(key5, value5));
+        Question q5 = new Question("Do you want videos along with pictures ?", "Videography", "6", ADDQUESTION(key5, value5),"2");
         this.addQuestion(q5);
 
-        String[] key6 = {"option7", "option8", "option1"};
-        int[] value6 = {7, 8, 1};
 
 
-        Question q6 = new Question("Question 6?", "IT", "6", ADDQUESTION(key6, value6));
+
+        String[] key6 = {"Normal (5000 to 8000)", " Silver (8000 to 12000)", "Gold (12000 to  15000)","Platimum (15000 and above)"};
+        int[] value6 = {5, 5, 5,5};
+
+
+        Question q6 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key6, value6),"3");
         this.addQuestion(q6);
 
-        String[] key7 = {"option8", "option4", "option7"};
-        int[] value7 = {8, 4, 7};
+
+        String[] key7 = {" Normal (20000 to 30000)", "Silver (30000 to 40000(Recommended))", "Gold (40000 to  60000)","Platinum (60000 and above)"};
+        int[] value7 = {5, 5, 5,5};
 
 
-        Question q7 = new Question("Question 7?", "IT", "7", ADDQUESTION(key7, value7));
+        Question q7 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key7, value7),"4");
         this.addQuestion(q7);
 
-        String[] key8 = {"option3", "option7", "option1"};
-        int[] value8 = {3, 7, 1};
 
 
-        Question q8 = new Question("Question 8?", "IT", "8", ADDQUESTION(key8, value8));
+
+
+        String[] key8 = {"Within 1 week", "Within 2 weeks", "Within 1 months","Within 2 months","Within 3 month","Other"};
+        int[] value8 = {6, 6, 6,6, 6, 6};
+
+
+        Question q8 = new Question("Prefered date for event shoot?", "Videography", "6", ADDQUESTION(key8, value8),"5");
         this.addQuestion(q8);
 
 
+
+
+        String[] key10 = {"Props", "Photo/Album", "Nothing"};
+        int[] value10 = {7,7,7};
+
+
+        Question q10 = new Question("What you like add additional acessaries(Additional charge) ?", "Videography", "6", ADDQUESTION(key10, value10),"6");
+        this.addQuestion(q10);
+
+        String[] key9 = {"Immediately", "Within a month", "Not sure"};
+        int[] value9 = {100,100,100};
+
+
+        Question q9 = new Question("How soon do  you need it ?", "Videography", "6", ADDQUESTION(key9, value9),"7");
+        this.addQuestion(q9);
     }
 
     @Override
@@ -123,13 +168,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Adding new question
     public void addQuestion(Question quest) {
+
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_QUESTION, quest.getQuestion());
         values.put(KEY_CATEGORY, quest.getCategory());
-        values.put(KEY_QUESTIONNUMBER, quest.getQuestionNumber());
+        values.put(KEY_TOTALQUESTIONS, quest.gettotalQuestions());
         values.put(KEY_OPTION, quest.getOption());
-        // Inserting Row
+        values.put(KEY_QUESTIONNUMBER, quest.getQuestionNumber());
+
         dbase.insert(TABLE_QUEST, null, values);
     }
 
@@ -159,13 +206,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //        return quesList;
 //    }
 
+    public Cursor getSearch( String field,
+                            String search) {
+        SQLiteDatabase sampleDB = this.getReadableDatabase();
+        Cursor c = sampleDB.rawQuery("SELECT FirstName, Age FROM " + TABLE_QUEST + " where " + field + " like '%" + search + "%'", null);
+        return c;
+    }
 
     public ArrayList<Question> getAllQuestions(String category, String questionNumber) {
         ArrayList<Question> quesList = new ArrayList<Question>();
         // Select All Query
         Log.d("cehck", "hi" + " ");
-        String selectQuery = "SELECT  * FROM " + TABLE_QUEST + " WHERE " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " = '" + questionNumber + "'";
+       String selectQuery = "SELECT  * FROM " + TABLE_QUEST + " WHERE " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " = '" + questionNumber + "'";
 
+        //String selectQuery="SELECT * FROM " + TABLE_QUEST + " where " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " like '%" + questionNumber + "%'";
         dbase = this.getReadableDatabase();
         Cursor cursor = dbase.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
@@ -176,7 +230,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 quest.setID(cursor.getInt((cursor.getColumnIndex(KEY_ID))));
                 quest.setQuestion(cursor.getString((cursor.getColumnIndex(KEY_QUESTION))));
                 quest.setCategory(cursor.getString((cursor.getColumnIndex(KEY_CATEGORY))));
-                quest.setQuestionNumber(cursor.getString((cursor.getColumnIndex(KEY_QUESTIONNUMBER))));
+                quest.settotalQuestions(cursor.getString((cursor.getColumnIndex(KEY_TOTALQUESTIONS))));
                 quest.setOption(cursor.getString((cursor.getColumnIndex(KEY_OPTION))));
 
 
@@ -189,11 +243,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     private String ADDQUESTION(String[] key, int[] value) {
-        HashMap<String, Integer> hashMap = new HashMap<>();
+        Map<String, Integer> hashMap = new LinkedHashMap<>();
         Gson gson = new Gson();
         for (int i = 0; i < key.length; i++) {
             hashMap.put(key[i], value[i]);
-            Log.d("enterValue", key[i] + " " + value[i]);
+
         }
 
         String json = gson.toJson(hashMap);

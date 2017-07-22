@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.tarunkukreja.event_log_sponsor.Forms.SampleForm;
+import com.example.tarunkukreja.event_log_sponsor.Database.QuizActivity;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.subcategory_grid);
-
+        Intent intent = new Intent(HomeActivity.this, QuizActivity.class) ;
+        startActivity(intent);
 
         listView = (ListView)findViewById(R.id.list_view) ;
 
@@ -48,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HomeActivity.this, SampleForm.class) ;
+                Intent intent = new Intent(HomeActivity.this, QuizActivity.class) ;
                 startActivity(intent);
             }
         });

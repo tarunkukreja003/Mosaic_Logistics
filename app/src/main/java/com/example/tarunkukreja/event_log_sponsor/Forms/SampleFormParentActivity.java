@@ -34,12 +34,12 @@ public class SampleFormParentActivity extends FragmentActivity implements Sample
 
     @Override
     public void onButtonSelectedItem(ArrayList<FormCustomClass> formList, String question) {
-        final NextFragment detailsFragment =
-                NextFragment.newInstance(formList);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, detailsFragment, "Details Frag")
-                .addToBackStack(null)
-                .commit();
+//        final NextFragment detailsFragment =
+//                NextFragment.newInstance(formList);
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fragment_container, detailsFragment, "Details Frag")
+//                .addToBackStack(null)
+//                .commit();
     }
 }

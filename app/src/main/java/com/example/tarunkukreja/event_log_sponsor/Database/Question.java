@@ -10,6 +10,7 @@ public class Question {
     public String category;
 
     public String option;
+    public String totalQuestions;
     public String questionNumber;
 
     public Question() {
@@ -18,9 +19,26 @@ public class Question {
         category = "";
 
         option = "";
+        totalQuestions="";
         questionNumber="";
     }
 
+
+    public String gettotalQuestions() {
+        return totalQuestions;
+    }
+
+    public void settotalQuestions(String totalQuestions) {
+        this.totalQuestions = totalQuestions;
+    }
+
+    public String getTotalQuestions() {
+        return totalQuestions;
+    }
+
+    public void setTotalQuestions(String totalQuestions) {
+        this.totalQuestions = totalQuestions;
+    }
 
     public String getQuestionNumber() {
         return questionNumber;
@@ -30,13 +48,15 @@ public class Question {
         this.questionNumber = questionNumber;
     }
 
-    public Question(String question, String category, String questionNumber, String option ) {
+    public Question(String question, String category, String totalQuestions, String option , String questionNumber) {
 
         this.question = question;
         this.category = category;
 
         this.option = option;
+        this.totalQuestions=totalQuestions;
         this.questionNumber=questionNumber;
+
 
 
     }
