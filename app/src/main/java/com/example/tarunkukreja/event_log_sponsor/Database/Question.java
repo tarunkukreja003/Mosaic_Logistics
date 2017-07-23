@@ -13,6 +13,7 @@ public class Question {
     public String totalQuestions;
     public String questionNumber;
 
+
     public Question() {
         ID = 0;
         question = "";
@@ -21,6 +22,7 @@ public class Question {
         option = "";
         totalQuestions="";
         questionNumber="";
+
     }
 
 
@@ -59,6 +61,11 @@ public class Question {
 
 
 
+    }
+
+    public Question(String question, String option) {
+        this.question = question ;
+        this.option = option;
     }
 
     public int getID() {

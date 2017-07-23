@@ -37,6 +37,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase dbase;
 
+
+
+
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -51,19 +55,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " TEXT, " + KEY_OPTION
                 + " TEXT, " + KEY_QUESTIONNUMBER + " TEXT)";
         db.execSQL(sql);
-        addQuestions();
-        addVideoGraphyData();
+        categoryList();
+        addQuestions("1");
+        addVideoGraphyData("1");
+
+
+
         //db.close();
     }
 
-    private void addQuestions() {
+    private String addQuestions(String first_question) {
 
 
         String[] key1 = {"Corporate Event", "Social Function", "College Event", "Other"};
         int[] value1 = {2, 2, 2, 2};
 
 
-        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1),"1");
+        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1),first_question);
         this.addQuestion(q1);
 
 
@@ -89,10 +97,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Question q9 = new Question("How soon do  you need it ?", "Photography", "4", ADDQUESTION(key9, value9),"4");
         this.addQuestion(q9);
 
+        return null ;
+
 
     }
 
-    private void addVideoGraphyData() {
+    private String addVideoGraphyData(String first_question) {
 
 
 
@@ -101,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value4 = {2, 2, 2};
 
 
-        Question q4 = new Question("What kind of party ?", "Videography", "6", ADDQUESTION(key4, value4),"1");
+        Question q4 = new Question("What kind of party ?", "Videography", "6", ADDQUESTION(key4, value4), first_question);
         this.addQuestion(q4);
 
         String[] key5 = {"No I just want pictures (Starting from 5000)", "Yes I want both videos and pictures (Starting from 150000)"};
@@ -156,6 +166,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Question q9 = new Question("How soon do  you need it ?", "Videography", "6", ADDQUESTION(key9, value9),"7");
         this.addQuestion(q9);
+
+        return null ;
     }
 
     @Override
@@ -262,6 +274,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         row = cursor.getCount();
         return row;
+    }
+
+    private String addCategoryQuestion(String[] key, String[] value) {
+        Map<String, String> hashMap = new LinkedHashMap<>();
+        Gson gson = new Gson();
+        for (int i = 0; i < key.length; i++) {
+            hashMap.put(key[i], value[i]);
+
+        }
+
+        String json = gson.toJson(hashMap);
+        return json;
+
+    }
+
+    public  ArrayList<Question> categoryList(){
+
+        ArrayList<Question> questionArrayList = new ArrayList<>() ;
+        String[] key1 = {"Photography", "Videography"} ;
+        String[] value1 = {addQuestions("1"), addVideoGraphyData("1")};
+        Question[] questArray = new Question[1] ;
+
+        String[] questions = {
+                "What are you looking for"
+        };
+        String[][] keys = {
+                key1
+        };
+        String[][] values = {
+              value1
+        };
+
+
+
+        questArray[0] = new Question(questions[0], addCategoryQuestion(keys[0], values[0]));
+
+        for(int i=0 ; i< questArray.length ; i++) {
+
+          questArray[i].setQuestion(questions[i]);
+            questArray[i].setOption(questArray[i].getOption());
+
+            questionArrayList.add(questArray[i]);
+        }
+
+        return questionArrayList ;
+
     }
 
 }

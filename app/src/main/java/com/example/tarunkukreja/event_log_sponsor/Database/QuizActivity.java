@@ -1,6 +1,9 @@
 package com.example.tarunkukreja.event_log_sponsor.Database;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,31 +37,61 @@ public class QuizActivity extends AppCompatActivity {
     TextView butNext;
     DatabaseHelper db;
     Map<String, Integer> hashMap;
+    Map<String, String> category_hashMap ;
 
     TextView textViewCount;
-    String category = "Videography";
+    String category = null ;
 
     String userKey;
+
+    Typeface roboto_med ;
+    Typeface roboto_reg ;
+    ColorStateList colorStateList ;
+    ArrayList<Question> categoryQuestList ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.form);
 
         db = new DatabaseHelper(this);
         hashMap = new LinkedHashMap<>();
+        category_hashMap = new LinkedHashMap<>() ;
+        categoryQuestList = db.categoryList() ;
         quesList = db.getAllQuestions(category, "1");
+
         Random rand = new Random();
         int x = rand.nextInt(400000);
         userKey = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + x;
 
+        roboto_med =  Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
+        roboto_reg =  Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
+
+
+
+         colorStateList = new ColorStateList(
+                new int[][]{
+
+                        new int[]{-android.R.attr.state_enabled}, //disabled
+                        new int[]{android.R.attr.state_enabled} //enabled
+                },
+                new int[] {
+
+                        getResources().getColor(R.color.colorPrimary) //disabled
+                        ,getResources().getColor(R.color.colorPrimary)//enabled
+
+                }
+        );
+
 
 //        currentQ=quesList.get(qid);
-        textViewCount = (TextView) findViewById(R.id.quizQuestionNumber);
-        txtQuestion = (TextView) findViewById(R.id.quizQuestion);
+        textViewCount = (TextView) findViewById(R.id.form_questionNumber);
+        txtQuestion = (TextView) findViewById(R.id.question_text);
+        txtQuestion.setTypeface(roboto_med);
 
-        butNext = (TextView) findViewById(R.id.nextQuestion);
-        setQuestionView(quesList);
+        butNext = (TextView) findViewById(R.id.next_click);
+        categoryQuestionView(categoryQuestList);
+//        setQuestionView(quesList);
         butNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +113,8 @@ public class QuizActivity extends AppCompatActivity {
                     } else {
                         quesList = db.getAllQuestions(category, checkedRadioButtonId);
                         setQuestionView(quesList);
+//                        categoryQuestList = db.categoryList() ;
+//                        categoryQuestionView(categoryQuestList);
                     }
                 } else {
                     Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
@@ -94,13 +129,13 @@ public class QuizActivity extends AppCompatActivity {
         if (!arrayList.isEmpty()) {
 
             count++;
-            radioGroup = (RadioGroup) findViewById(R.id.quizRadioGroup);
+            radioGroup = (RadioGroup) findViewById(R.id.options_radioGroup);
             if (!hashMap.isEmpty()) {
                 hashMap.clear();
                 radioGroup.removeAllViews();
             }
 
-            textViewCount.setText(count + "/" + arrayList.get(0).getTotalQuestions());
+            textViewCount.setText(count + "/" + (arrayList.get(0).getTotalQuestions() + 1)); // + 1 for 1st question that decides the category
             txtQuestion.setText(arrayList.get(0).getQuestion());
 
             Gson gson = new Gson();
@@ -113,6 +148,27 @@ public class QuizActivity extends AppCompatActivity {
                 i++;
                 radioBtn = new RadioButton(this);
                 radioBtn.setText(map.getKey().toString());
+                radioBtn.setTextColor(getResources().getColor(R.color.colorPrimary));
+                radioBtn.setBackground(getResources().getDrawable(R.drawable.ripple_sel));
+                radioBtn.setPadding(16, 16, 16, 16);
+                RadioGroup.LayoutParams params
+                        = new RadioGroup.LayoutParams(QuizActivity.this, null);
+                params.setMargins(0, 0, 0, 20);
+                radioBtn.setLayoutParams(params);
+                radioBtn.setTypeface(roboto_reg);
+                radioBtn.setTextSize(20);
+                radioBtn.setHighlightColor(getResources().getColor(R.color.colorAccent));
+//                if(radioBtn.isChecked()){
+//                    radioBtn.setTypeface(roboto_med);
+//                }
+
+                if(Build.VERSION.SDK_INT>=21){
+                    radioBtn.setButtonTintList(colorStateList);
+                    radioBtn.invalidate(); //could not be necessary
+                }
+//                radioBtn.setButtonDrawable(getResources().getDrawable(R.drawable.form_selector));
+
+
                 String value = map.getValue().toString();
                 int intValue = Integer.parseInt(value);
                 String sum = intValue + "" + i;
@@ -137,6 +193,71 @@ public class QuizActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void categoryQuestionView(ArrayList<Question> categoryQuestList){
+        if(!categoryQuestList.isEmpty()){
+            if (!category_hashMap.isEmpty()) {
+                category_hashMap.clear();
+                radioGroup.removeAllViews();
+            }
+
+            txtQuestion.setText(categoryQuestList.get(0).getQuestion());
+
+            Gson gson = new Gson();
+            String json = categoryQuestList.get(0).getOption();
+            Type type = new TypeToken<LinkedHashMap<String, String>>() {}.getType();
+            category_hashMap = gson.fromJson(json, type);
+
+            int i = 0;
+            for (Map.Entry map : category_hashMap.entrySet()) {
+                i++;
+                radioBtn = new RadioButton(this);
+                radioBtn.setText(map.getKey().toString());
+                radioBtn.setTextColor(getResources().getColor(R.color.colorPrimary));
+                radioBtn.setBackground(getResources().getDrawable(R.drawable.ripple_sel));
+                radioBtn.setPadding(16, 16, 16, 16);
+                RadioGroup.LayoutParams params
+                        = new RadioGroup.LayoutParams(QuizActivity.this, null);
+                params.setMargins(0, 0, 0, 20);
+                radioBtn.setLayoutParams(params);
+                radioBtn.setTypeface(roboto_reg);
+                radioBtn.setTextSize(20);
+                radioBtn.setHighlightColor(getResources().getColor(R.color.colorAccent));
+//                if(radioBtn.isChecked()){
+//                    radioBtn.setTypeface(roboto_med);
+//                }
+
+                if(Build.VERSION.SDK_INT>=21){
+                    radioBtn.setButtonTintList(colorStateList);
+                    radioBtn.invalidate(); //could not be necessary
+                }
+//                radioBtn.setButtonDrawable(getResources().getDrawable(R.drawable.form_selector));
+
+
+                String value = map.getValue().toString();
+                int intValue = Integer.parseInt(value);
+                String sum = intValue + "" + i;
+                radioBtn.setId(Integer.parseInt(sum));
+                radioGroup.addView(radioBtn);
+
+
+            }
+
+            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup rg, int checkedId) {
+                    for (int i = 0; i < rg.getChildCount(); i++) {
+                        radioBtn = (RadioButton) rg.getChildAt(i);
+                        if (radioBtn.getId() == checkedId) {
+                            category = radioBtn.getText().toString();
+
+                            return;
+                        }
+                    }
+                }
+            });
+        }
     }
 
     private String fetchSubstring(String s) {
