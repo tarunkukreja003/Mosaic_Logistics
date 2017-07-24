@@ -1,4 +1,4 @@
-package com.example.tarunkukreja.event_log_sponsor.Forms;
+package com.example.tarunkukreja.event_log_sponsor.Database;
 
 /**
  * Created by tarunkukreja on 20/07/17.

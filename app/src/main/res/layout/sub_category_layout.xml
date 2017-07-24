@@ -8,7 +8,7 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/speakerImageview"
+        android:id="@+id/logis_back_image"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:scaleType="centerCrop"

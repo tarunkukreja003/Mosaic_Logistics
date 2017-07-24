@@ -17,11 +17,12 @@ class CustomClass {
     String venue_price ;
     String merchandise_name ;
     String merchandise_price ;
+    String image ;
 
 
-    public CustomClass(String venue_name, String venue_price) {
+    public CustomClass(String venue_name, String image) {
         this.venue_name = venue_name;
-        this.venue_price = venue_price;
+        this.image = image;
     }
 
 
@@ -42,6 +43,14 @@ class CustomClass {
         this.buying_price = buying_price;
         this.buying_text = buying_text;
         this.rent_text = rent_text;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCategory_text() {
