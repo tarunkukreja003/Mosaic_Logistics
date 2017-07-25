@@ -1,6 +1,7 @@
 package com.example.tarunkukreja.event_log_sponsor.Database;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,8 +24,14 @@ import java.util.ArrayList;
 public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 
     private RadioButton selected = null ;
+    private int lastCheckedPos = 0 ;
     int id ;
-    int selPos ;
+    int selPos = -1 ;
+
+    OnItemClick onItemClick ;
+
+    ArrayList<FormCustomClass> radioButtonList ;
+
 
 
 
@@ -34,6 +41,7 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
     }
     public FormAdapter(Context context, ArrayList<FormCustomClass> arrayList){
         super(context, 0, arrayList);
+        radioButtonList = arrayList ;
     }
 
 
@@ -53,6 +61,9 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
+
+        Typeface roboto_med = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf");
+        Typeface roboto_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
         FormCustomClass formCustomClass = getItem(position) ;
         FormViewHolder formViewHolder = null ;
 
@@ -65,18 +76,137 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
         }
 
         final FormViewHolder finalFormViewHolder = formViewHolder;
+
+        //for default check in first item
         finalFormViewHolder.radioButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
+                Log.d("Adapter", "Inside Radio Button onClick");
+                Log.d("Adapter", "Position of Radio Button Clicked " + position);
+
                 if(selected != null){
                     selected.setChecked(false);
                 }
+
                 finalFormViewHolder.radioButton.setChecked(true);
+
                 selected = finalFormViewHolder.radioButton ;
-                Log.d("Adapter", "selected position " + position);
-                selPos = position ;
+
+                try {
+                    onItemClick = (OnItemClick) getContext();
+                } catch (ClassCastException e) {
+                    throw new ClassCastException(getContext().toString()
+                            + " must implement OnItemClick");
+                }
+                onItemClick.onItemClick(position);
             }
         });
+
+        Log.d("Adapter", "text " + formCustomClass.getRadioButtonText()) ;
+
+        formViewHolder.radioButton.setText(formCustomClass.getRadioButtonText());
+        formViewHolder.radioButton.setTypeface(roboto_reg);
+
+        return convertView;
+    }
+
+
+
+//        if(selPos == position){
+//            formViewHolder.radioButton.setChecked(true);
+//        }else {
+//            formViewHolder.radioButton.setChecked(false);
+//        }
+
+
+
+//        finalFormViewHolder.radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//                if(isChecked){
+//                    selected.setChecked(true);
+//                }else {
+//                    selected.setChecked(false);
+//                }
+//            }
+//        });
+
+
+
+
+
+
+//        finalFormViewHolder.radioButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v){
+//
+//
+////
+////                if(selected != null){
+////                    selected.setChecked(false);
+////                }
+////
+////                finalFormViewHolder.radioButton.setChecked(true);
+////
+////                selected = finalFormViewHolder.radioButton ;
+//
+//
+//
+//
+//
+//
+//            }
+//        });
+
+
+
+    public interface OnItemClick{
+        void onItemClick(int pos);
+    }
+
+
+
+//                View vMain = ((View) v.getParent());
+//                int newIndex = ((ViewGroup) vMain.getParent()).indexOfChild(vMain);
+//                if (listIndex == newIndex) return;
+//
+//                if (selected != null) {
+//                    selected.setChecked(false);
+//                }
+//                selected = (RadioButton) v;
+//                listIndex = newIndex;
+
+
+
+
+
+//                notifyDataSetChanged();
+//                Log.d("Adapter", "selected position " + position);
+//                selPos = position ;
+
+
+
+
+    //    if(selected == null){
+//                    selected = (RadioButton)v ;
+//                    selected.setChecked(true);
+//                }
+//
+//                if(selected == v)
+//                    return;
+//
+//                selected.setChecked(false);
+//                ((RadioButton)v).setChecked(true);
+//                selected = (RadioButton)v;
+
+
+
+
+
+
+
+
 //        formViewHolder.radioButton.setChecked(position == selPos);
 //        formViewHolder.radioButton.setTag(position);
 //
@@ -90,16 +220,16 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 //        });
 
 
-        Log.d("Adapter", "text" + formCustomClass.getRadioButtonText()) ;
 
-        formViewHolder.radioButton.setText(formCustomClass.getRadioButtonText());
-
-        return convertView;
-    }
 
     public int getItemPos(){
         return selPos ;
     }
+
+
+//    public void selectedButton(int index){
+//        selPos = index ;
+//    }
 
 
 }

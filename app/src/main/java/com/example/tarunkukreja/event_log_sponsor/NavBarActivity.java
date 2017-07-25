@@ -84,22 +84,22 @@ public class NavBarActivity extends AppCompatActivity
         //initializing the fragment object which is selected
         switch (itemId) {
             case R.id.nav_event_setup:
-                fragment = new EventSetupFragment();
+//                fragment = new EventSetupFragment();
                 break;
             case R.id.nav_food_beverage:
-                fragment = new FoodBevFragment();
+//                fragment = new FoodBevFragment();
                 break;
             case R.id.nav_merchandise:
-                fragment = new MerchandiseFrag();
+ //               fragment = new MerchandiseFrag();
                 break;
             case R.id.nav_security:
-                fragment = new SecurityFrag();
+//                fragment = new SecurityFrag();
                 break;
             case R.id.nav_transportation:
-                fragment = new TransportationFragment();
+//                fragment = new TransportationFragment();
                 break;
             case R.id.nav_venue_booking:
-                fragment = new VenueBookingFragment();
+//                fragment = new VenueBookingFragment();
                 break;
         }
         if (fragment != null) {
