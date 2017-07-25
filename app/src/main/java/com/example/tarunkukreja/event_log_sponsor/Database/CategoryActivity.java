@@ -43,10 +43,10 @@ public class CategoryActivity extends AppCompatActivity implements FormAdapter.O
 
         setContentView(R.layout.activity_category);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar) ;
-        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar12) ;
+//        setSupportActionBar(toolbar);
         toolbar.setTitle("Photography/Videography");
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+       // toolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
         radioButton = new RadioButton(this);
 

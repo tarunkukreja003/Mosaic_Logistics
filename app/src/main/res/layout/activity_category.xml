@@ -1,80 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fitsSystemWindows="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:textColorSecondary="@color/white"
-        app:titleTextColor="@color/white"
-
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/form_questionNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/text_margin_10dp"
-                android:textColor="@color/white" />
-        </RelativeLayout>
-
-    </android.support.v7.widget.Toolbar>
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
+        android:id="@+id/t"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar12"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginEnd="@dimen/text_margin_30dp"
+            android:background="?attr/colorPrimary"
+            android:textColorSecondary="@color/white"
+            app:titleTextColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/form_questionNumber"
+            android:layout_width="30dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/radio_buttons_linear_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:id="@+id/radio_buttons_linear_lay"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/t"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/question_text_category_dec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose your Event Setup subcategory"
-            android:textSize="24sp"
-            android:textColor="@color/colorPrimaryDark"
             android:layout_marginBottom="34dp"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:text="Choose your Event Setup subcategory"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
 
-       <ListView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/question_text_category_dec"
-           android:id="@+id/category_listView"
-           android:divider="@null"
-           android:layout_marginTop="30dp"
-           android:choiceMode="singleChoice">
+        <ListView
+            android:id="@+id/category_listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_text_category_dec"
+            android:layout_marginTop="30dp"
+            android:choiceMode="singleChoice"
+            android:divider="@null">
 
-       </ListView>
+        </ListView>
+
         <RelativeLayout
+            android:id="@+id/next_button_relative_lay"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/next_button_relative_lay"
             android:layout_alignParentBottom="true">
 
             <TextView
+                android:id="@+id/next_click"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
+                android:layout_centerInParent="true"
                 android:background="@drawable/solid_button"
+                android:gravity="center"
                 android:text="NEXT"
                 android:textColor="@color/yellow"
-                android:layout_centerInParent="true"
                 android:textSize="16sp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:id="@+id/next_click" />
+                android:textStyle="bold" />
         </RelativeLayout>
 
     </RelativeLayout>
