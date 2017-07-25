@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.tarunkukreja.event_log_sponsor.R;
+import com.example.tarunkukreja.event_log_sponsor.contactUs.contactus;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_category);
 
+        startActivity(new Intent(getApplicationContext(), contactus.class));
         radioButton = new RadioButton(this) ;
 
         category_listView = (ListView)findViewById(R.id.category_listView) ;
