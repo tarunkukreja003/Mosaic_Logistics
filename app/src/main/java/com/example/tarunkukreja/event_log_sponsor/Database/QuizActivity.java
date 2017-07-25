@@ -153,7 +153,7 @@ public class QuizActivity extends AppCompatActivity {
                 radioBtn.setPadding(16, 16, 16, 16);
                 RadioGroup.LayoutParams params
                         = new RadioGroup.LayoutParams(QuizActivity.this, null);
-                params.setMargins(0, 0, 0, 20);
+                params.setMargins(0, 0, 0, 30);
                 radioBtn.setLayoutParams(params);
                 radioBtn.setTypeface(roboto_reg);
                 radioBtn.setTextSize(20);

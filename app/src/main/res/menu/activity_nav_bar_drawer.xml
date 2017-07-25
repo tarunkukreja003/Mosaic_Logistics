@@ -4,32 +4,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_event_setup"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/event_setup" />
+            android:icon="@mipmap/services_event"
+            android:title="Event Services" />
         <item
             android:id="@+id/nav_transportation"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/transportation" />
+            android:icon="@drawable/ic_menu_send"
+            android:title="Event Mosaic App" />
         <item
             android:id="@+id/nav_venue_booking"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/venue_booking" />
+            android:title="Log Out" />
         <item
             android:id="@+id/nav_merchandise"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/merchandise" />
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="About Us" />
         <item
             android:id="@+id/nav_security"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/security" />
+            android:icon="@drawable/ic_warning_black_24dp"
+            android:title="Terms and Conditions" />
         <item
             android:id="@+id/nav_food_beverage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/food_beverage" />
-        <item
-            android:id="@+id/nav_event_management"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/event_management" />
+            android:icon="@drawable/ic_contact_mail_black_24dp"
+            android:title="Contact Us" />
+
 
     </group>
 

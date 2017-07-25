@@ -15,10 +15,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Room Setup"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textColor="@drawable/form_selector"
         android:buttonTint="@drawable/form_selector"
-        android:background="@drawable/ripple_sel"/>
+        android:background="@drawable/ripple_sel"
+        android:checked="false"/>
     </RadioGroup>
 
 </RelativeLayout>
