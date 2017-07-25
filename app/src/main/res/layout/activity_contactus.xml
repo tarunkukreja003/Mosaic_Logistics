@@ -38,10 +38,10 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:onClick="contactUsViaCall"
             android:layout_marginEnd="@dimen/text_margin_10dp"
             android:layout_marginStart="@dimen/text_margin_10dp"
-            android:layout_marginTop="@dimen/dimen20dp">
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:onClick="contactUsViaCall">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -89,10 +89,10 @@
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:onClick="ContactUsViaMail"
             android:layout_marginEnd="@dimen/text_margin_10dp"
             android:layout_marginStart="@dimen/text_margin_10dp"
-            android:layout_marginTop="@dimen/dimen20dp">
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:onClick="ContactUsViaMail">
 
             <RelativeLayout
 
@@ -125,12 +125,12 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:onClick="ContactUsViaWebsite"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginEnd="@dimen/text_margin_10dp"
             android:layout_marginStart="@dimen/text_margin_10dp"
-            android:layout_marginTop="@dimen/dimen20dp">
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:onClick="ContactUsViaWebsite">
 
             <RelativeLayout
 
@@ -195,39 +195,44 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:onClick="contactUsViaInstagram"
+                    android:padding="2dp"
+                    android:src="@drawable/instagram" />
+
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
-
-                <ImageView
                     android:onClick="contactUsViaFacebook"
+                    android:padding="2dp"
+                    android:src="@drawable/facebook" />
+
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
-
-                <ImageView
                     android:onClick="contactUsViaTwitter"
+                    android:padding="2dp"
+                    android:src="@drawable/twitter" />
+
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
-
-                <ImageView
                     android:onClick="contactUsViaPinterest"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
+                    android:padding="2dp"
+                    android:src="@drawable/pinterest" />
 
                 <ImageView
-                    android:onClick="contactUsViaTumblr"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
+                    android:onClick="contactUsViaTumblr"
+                    android:padding="2dp"
+                    android:src="@drawable/tumblr" />
 
             </LinearLayout>
 

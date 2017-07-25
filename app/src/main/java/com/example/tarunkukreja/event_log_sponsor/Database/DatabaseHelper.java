@@ -38,9 +38,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private SQLiteDatabase dbase;
 
 
-
-
-
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -58,7 +55,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         addQuestions();
         addVideoGraphyData();
-
+        addBeverageData();
+        addFoodCateringData();
 
 
         //db.close();
@@ -71,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value1 = {2, 2, 2, 2};
 
 
-        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1),"1");
+        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1), "1");
         this.addQuestion(q1);
 
 
@@ -79,7 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value2 = {3, 3, 3};
 
 
-        Question q2 = new Question("Duration of the Event ?", "Photography", "4", ADDQUESTION(key2, value2),"2");
+        Question q2 = new Question("Duration of the Event ?", "Photography", "4", ADDQUESTION(key2, value2), "2");
         this.addQuestion(q2);
 
 
@@ -87,24 +85,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value3 = {4, 4, 4};
 
 
-        Question q3 = new Question("Budget for Photography Service ?", "Photography", "4", ADDQUESTION(key3, value3),"3");
+        Question q3 = new Question("Budget for Photography Service ?", "Photography", "4", ADDQUESTION(key3, value3), "3");
         this.addQuestion(q3);
 
         String[] key9 = {"Immediately", "Within a month", "Not sure"};
-        int[] value9 = {100,100,100};
+        int[] value9 = {100, 100, 100};
 
 
-        Question q9 = new Question("How soon do  you need it ?", "Photography", "4", ADDQUESTION(key9, value9),"4");
+        Question q9 = new Question("How soon do  you need it ?", "Photography", "4", ADDQUESTION(key9, value9), "4");
         this.addQuestion(q9);
-
-
 
 
     }
 
     public void addVideoGraphyData() {
-
-
 
 
         String[] key4 = {"Wedding", "Social Function", "Corporate Event"};
@@ -118,54 +112,109 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value5 = {3, 4};
 
 
-        Question q5 = new Question("Do you want videos along with pictures ?", "Videography", "6", ADDQUESTION(key5, value5),"2");
+        Question q5 = new Question("Do you want videos along with pictures ?", "Videography", "6", ADDQUESTION(key5, value5), "2");
         this.addQuestion(q5);
 
 
+        String[] key6 = {"Normal (5000 to 8000)", " Silver (8000 to 12000)", "Gold (12000 to  15000)", "Platimum (15000 and above)"};
+        int[] value6 = {5, 5, 5, 5};
 
 
-        String[] key6 = {"Normal (5000 to 8000)", " Silver (8000 to 12000)", "Gold (12000 to  15000)","Platimum (15000 and above)"};
-        int[] value6 = {5, 5, 5,5};
-
-
-        Question q6 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key6, value6),"3");
+        Question q6 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key6, value6), "3");
         this.addQuestion(q6);
 
 
-        String[] key7 = {" Normal (20000 to 30000)", "Silver (30000 to 40000(Recommended))", "Gold (40000 to  60000)","Platinum (60000 and above)"};
-        int[] value7 = {5, 5, 5,5};
+        String[] key7 = {" Normal (20000 to 30000)", "Silver (30000 to 40000(Recommended))", "Gold (40000 to  60000)", "Platinum (60000 and above)"};
+        int[] value7 = {5, 5, 5, 5};
 
 
-        Question q7 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key7, value7),"4");
+        Question q7 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key7, value7), "4");
         this.addQuestion(q7);
 
 
+        String[] key8 = {"Within 1 week", "Within 2 weeks", "Within 1 months", "Within 2 months", "Within 3 month", "Other"};
+        int[] value8 = {6, 6, 6, 6, 6, 6};
 
 
-
-        String[] key8 = {"Within 1 week", "Within 2 weeks", "Within 1 months","Within 2 months","Within 3 month","Other"};
-        int[] value8 = {6, 6, 6,6, 6, 6};
-
-
-        Question q8 = new Question("Prefered date for event shoot?", "Videography", "6", ADDQUESTION(key8, value8),"5");
+        Question q8 = new Question("Prefered date for event shoot?", "Videography", "6", ADDQUESTION(key8, value8), "5");
         this.addQuestion(q8);
 
 
-
-
         String[] key10 = {"Props", "Photo/Album", "Nothing"};
-        int[] value10 = {7,7,7};
+        int[] value10 = {7, 7, 7};
 
 
-        Question q10 = new Question("What you like add additional acessaries(Additional charge) ?", "Videography", "6", ADDQUESTION(key10, value10),"6");
+        Question q10 = new Question("What you like add additional acessaries(Additional charge) ?", "Videography", "6", ADDQUESTION(key10, value10), "6");
         this.addQuestion(q10);
 
         String[] key9 = {"Immediately", "Within a month", "Not sure"};
-        int[] value9 = {100,100,100};
+        int[] value9 = {100, 100, 100};
 
 
-        Question q9 = new Question("How soon do  you need it ?", "Videography", "6", ADDQUESTION(key9, value9),"7");
+        Question q9 = new Question("How soon do  you need it ?", "Videography", "6", ADDQUESTION(key9, value9), "7");
         this.addQuestion(q9);
+
+    }
+
+    public void addFoodCateringData() {
+        String[] key4 = {"Vegetarian", "Vegetarian and Non Vegetarian"};
+        int[] value4 = {2, 2};
+
+
+        Question q4 = new Question("Food Prefernce", "foodcatering", "5", ADDQUESTION(key4, value4), "1");
+        this.addQuestion(q4);
+
+        String[] key5 = {"Yes (Transportation will  be charged to reach  the venue)", "No"};
+        int[] value5 = {3, 3};
+
+
+        Question q5 = new Question("Do you want it to  be cooked on the venue ?", "foodcatering", "5", ADDQUESTION(key5, value5), "2");
+        this.addQuestion(q5);
+
+
+        String[] key6 = {"Social Functions(Wedding ,house parties etc.)", "College/school Events", "Carnival"};
+        int[] value6 = {4, 4, 4};
+
+
+        Question q6 = new Question("Catering needed for ", "foodcatering", "5", ADDQUESTION(key6, value6), "3");
+        this.addQuestion(q6);
+
+
+        String[] key7 = {"100 to  150", "150  to 200", "200 to  250", "250  to 300", "300 to  350", "350 to  400", "400 to 450", "450 to 500", " 500 and more"};
+        int[] value7 = {5, 5, 5, 5, 5, 5, 5, 5, 5};
+
+
+        Question q7 = new Question("Expected number of guest ", "foodcatering", "5", ADDQUESTION(key7, value7), "4");
+        this.addQuestion(q7);
+
+
+        String[] key8 = {"Basic (250 to  500)", "Standard Area (500 to 1000)", "Gold (1000 to 1300)", "Premium (1300-above)"};
+        int[] value8 = {100, 100, 100, 100};
+
+
+        Question q8 = new Question("Budget  per plate?", "foodcatering", "5", ADDQUESTION(key8, value8), "5");
+        this.addQuestion(q8);
+
+
+    }
+
+
+    public void addBeverageData() {
+        String[] key4 = {"Alcohal", "Alcohal and Non alcohal", "Only water"};
+        int[] value4 = {2, 2, 2};
+
+
+        Question q4 = new Question("Beverage Preference", "beverage", "2", ADDQUESTION(key4, value4), "1");
+        this.addQuestion(q4);
+
+
+        String[] key5 = {"1-5 crates", "6-10 crateso", "10-15 creates", " 15 and more"};
+        int[] value5 = {100, 100, 100, 100};
+
+
+        Question q5 = new Question("Quantity ?", "beverage", "2", ADDQUESTION(key5, value5), "2");
+        this.addQuestion(q5);
+
 
     }
 
@@ -228,7 +277,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Question> quesList = new ArrayList<Question>();
         // Select All Query
         Log.d("cehck", "hi" + " ");
-       String selectQuery = "SELECT  * FROM " + TABLE_QUEST + " WHERE " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " = '" + questionNumber + "'";
+        String selectQuery = "SELECT  * FROM " + TABLE_QUEST + " WHERE " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " = '" + questionNumber + "'";
 
         //String selectQuery="SELECT * FROM " + TABLE_QUEST + " where " + KEY_CATEGORY + " = '" + category + "'" + " AND " + KEY_QUESTIONNUMBER + " like '%" + questionNumber + "%'";
         dbase = this.getReadableDatabase();

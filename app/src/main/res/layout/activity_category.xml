@@ -12,6 +12,7 @@
         android:background="?attr/colorPrimary"
         android:textColorSecondary="@color/white"
         app:titleTextColor="@color/white"
+
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
         <RelativeLayout
