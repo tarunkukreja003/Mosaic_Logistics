@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.androidnetworking.AndroidNetworking;
+import com.example.tarunkukreja.event_log_sponsor.Database.DatabaseSubCategory;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        DatabaseSubCategory databaseSubCategory=new DatabaseSubCategory(getApplicationContext());
+       // databaseSubCategory.addQuestionsData();
         AndroidNetworking.initialize(getApplicationContext());
 
 //        setContentView(R.layout.subcategory_grid);

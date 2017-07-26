@@ -1,6 +1,7 @@
 package com.example.tarunkukreja.event_log_sponsor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.annotation.LayoutRes;
@@ -18,6 +19,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.BitmapRequestListener;
+import com.example.tarunkukreja.event_log_sponsor.SubCategory.SubCategoryActivity;
 
 import java.util.ArrayList;
 
@@ -26,12 +28,15 @@ import java.util.ArrayList;
  */
 
 public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
+    Context context;
     public SubCategoryAdapter(@NonNull Context context, @LayoutRes int resource) {
         super(context, resource);
+        this.context=context;
     }
 
     public SubCategoryAdapter(Context context, ArrayList<CustomClass> arrayList){
         super(context, 0, arrayList);
+        this.context=context;
     }
 
 
@@ -67,17 +72,17 @@ public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
         Typeface mRoboto_medium = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf") ;
         Typeface mRoboto_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf") ;
 
-        CustomClass customClass = getItem(position) ;
+       final CustomClass customClass = getItem(position) ;
         CategoryViewHolder categoryViewHolder = null ;
 
         if(convertView == null) {
-            Log.d("Custom Adapter", "convertView is null") ;
+
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.sub_category_layout, parent, false);
             categoryViewHolder = new CategoryViewHolder(convertView) ;
             convertView.setTag(categoryViewHolder);
 
         }else{
-            Log.d("Custom Adapter", "convertView is not null") ;
+
             categoryViewHolder = (CategoryViewHolder) convertView.getTag() ;
         }
 
@@ -100,6 +105,16 @@ public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
                         Log.d("Adapter", "Error loading images") ;
                     }
                 });
+
+        finalCategoryViewHolder.log_back_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context, SubCategoryActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("category",customClass.getVenue_name());
+                context.startActivity(intent);
+            }
+        });
 //        categoryViewHolder.rent_price.setText(customClass.getRent_price());
 //        categoryViewHolder.buying_price.setText(customClass.getBuying_price());
 //        categoryViewHolder.buying_text.setText(customClass.getBuying_text());

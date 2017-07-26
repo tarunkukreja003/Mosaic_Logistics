@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value1 = {2, 2, 2, 2};
 
 
-        Question q1 = new Question("What kind of party?", "Photography", "4", ADDQUESTION(key1, value1), "1");
+        Question q1 = new Question("What kind of party?", "Photographer", "4", ADDQUESTION(key1, value1), "1");
         this.addQuestion(q1);
 
 
@@ -77,7 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value2 = {3, 3, 3};
 
 
-        Question q2 = new Question("Duration of the Event ?", "Photography", "4", ADDQUESTION(key2, value2), "2");
+        Question q2 = new Question("Duration of the Event ?", "Photographer", "4", ADDQUESTION(key2, value2), "2");
         this.addQuestion(q2);
 
 
@@ -85,14 +85,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value3 = {4, 4, 4};
 
 
-        Question q3 = new Question("Budget for Photography Service ?", "Photography", "4", ADDQUESTION(key3, value3), "3");
+        Question q3 = new Question("Budget for Photography Service ?", "Photographer", "4", ADDQUESTION(key3, value3), "3");
         this.addQuestion(q3);
 
         String[] key9 = {"Immediately", "Within a month", "Not sure"};
         int[] value9 = {100, 100, 100};
 
 
-        Question q9 = new Question("How soon do  you need it ?", "Photography", "4", ADDQUESTION(key9, value9), "4");
+        Question q9 = new Question("How soon do  you need it ?", "Photographer", "4", ADDQUESTION(key9, value9), "4");
         this.addQuestion(q9);
 
 
@@ -105,14 +105,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value4 = {2, 2, 2};
 
 
-        Question q4 = new Question("What kind of party ?", "Videography", "6", ADDQUESTION(key4, value4), "1");
+        Question q4 = new Question("What kind of party ?", "VideoGrapher", "6", ADDQUESTION(key4, value4), "1");
         this.addQuestion(q4);
 
         String[] key5 = {"No I just want pictures (Starting from 5000)", "Yes I want both videos and pictures (Starting from 150000)"};
         int[] value5 = {3, 4};
 
 
-        Question q5 = new Question("Do you want videos along with pictures ?", "Videography", "6", ADDQUESTION(key5, value5), "2");
+        Question q5 = new Question("Do you want videos along with pictures ?", "VideoGrapher", "6", ADDQUESTION(key5, value5), "2");
         this.addQuestion(q5);
 
 
@@ -120,7 +120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value6 = {5, 5, 5, 5};
 
 
-        Question q6 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key6, value6), "3");
+        Question q6 = new Question("What is the approx budget(Per day) ?", "VideoGrapher", "6", ADDQUESTION(key6, value6), "3");
         this.addQuestion(q6);
 
 
@@ -128,7 +128,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value7 = {5, 5, 5, 5};
 
 
-        Question q7 = new Question("What is the approx budget(Per day) ?", "Videography", "6", ADDQUESTION(key7, value7), "4");
+        Question q7 = new Question("What is the approx budget(Per day) ?", "VideoGrapher", "6", ADDQUESTION(key7, value7), "4");
         this.addQuestion(q7);
 
 
@@ -136,7 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value8 = {6, 6, 6, 6, 6, 6};
 
 
-        Question q8 = new Question("Prefered date for event shoot?", "Videography", "6", ADDQUESTION(key8, value8), "5");
+        Question q8 = new Question("Prefered date for event shoot?", "VideoGrapher", "6", ADDQUESTION(key8, value8), "5");
         this.addQuestion(q8);
 
 
@@ -144,14 +144,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value10 = {7, 7, 7};
 
 
-        Question q10 = new Question("What you like add additional acessaries(Additional charge) ?", "Videography", "6", ADDQUESTION(key10, value10), "6");
+        Question q10 = new Question("What you like add additional acessaries(Additional charge) ?", "VideoGrapher", "6", ADDQUESTION(key10, value10), "6");
         this.addQuestion(q10);
 
         String[] key9 = {"Immediately", "Within a month", "Not sure"};
         int[] value9 = {100, 100, 100};
 
 
-        Question q9 = new Question("How soon do  you need it ?", "Videography", "6", ADDQUESTION(key9, value9), "7");
+        Question q9 = new Question("How soon do  you need it ?", "VideoGrapher", "6", ADDQUESTION(key9, value9), "7");
         this.addQuestion(q9);
 
     }
@@ -161,14 +161,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value4 = {2, 2};
 
 
-        Question q4 = new Question("Food Prefernce", "foodcatering", "5", ADDQUESTION(key4, value4), "1");
+        Question q4 = new Question("Food Prefernce", "Food catering service", "5", ADDQUESTION(key4, value4), "1");
         this.addQuestion(q4);
 
         String[] key5 = {"Yes (Transportation will  be charged to reach  the venue)", "No"};
         int[] value5 = {3, 3};
 
 
-        Question q5 = new Question("Do you want it to  be cooked on the venue ?", "foodcatering", "5", ADDQUESTION(key5, value5), "2");
+        Question q5 = new Question("Do you want it to  be cooked on the venue ?", "Food catering service", "5", ADDQUESTION(key5, value5), "2");
         this.addQuestion(q5);
 
 
@@ -176,7 +176,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value6 = {4, 4, 4};
 
 
-        Question q6 = new Question("Catering needed for ", "foodcatering", "5", ADDQUESTION(key6, value6), "3");
+        Question q6 = new Question("Catering needed for ", "Food catering service", "5", ADDQUESTION(key6, value6), "3");
         this.addQuestion(q6);
 
 
@@ -184,7 +184,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value7 = {5, 5, 5, 5, 5, 5, 5, 5, 5};
 
 
-        Question q7 = new Question("Expected number of guest ", "foodcatering", "5", ADDQUESTION(key7, value7), "4");
+        Question q7 = new Question("Expected number of guest ", "Food catering service", "5", ADDQUESTION(key7, value7), "4");
         this.addQuestion(q7);
 
 
@@ -192,7 +192,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value8 = {100, 100, 100, 100};
 
 
-        Question q8 = new Question("Budget  per plate?", "foodcatering", "5", ADDQUESTION(key8, value8), "5");
+        Question q8 = new Question("Budget  per plate?", "Food catering service", "5", ADDQUESTION(key8, value8), "5");
         this.addQuestion(q8);
 
 
@@ -204,7 +204,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value4 = {2, 2, 2};
 
 
-        Question q4 = new Question("Beverage Preference", "beverage", "2", ADDQUESTION(key4, value4), "1");
+        Question q4 = new Question("Beverage Preference", "Beverages", "2", ADDQUESTION(key4, value4), "1");
         this.addQuestion(q4);
 
 
@@ -212,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int[] value5 = {100, 100, 100, 100};
 
 
-        Question q5 = new Question("Quantity ?", "beverage", "2", ADDQUESTION(key5, value5), "2");
+        Question q5 = new Question("Quantity ?", "Beverages", "2", ADDQUESTION(key5, value5), "2");
         this.addQuestion(q5);
 
 
@@ -229,7 +229,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Adding new question
     public void addQuestion(Question quest) {
 
-        SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         values.put(KEY_QUESTION, quest.getQuestion());
         values.put(KEY_CATEGORY, quest.getCategory());
@@ -237,7 +237,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_OPTION, quest.getOption());
         values.put(KEY_QUESTIONNUMBER, quest.getQuestionNumber());
 
-        db.insert(TABLE_QUEST, null, values);
+        dbase.insert(TABLE_QUEST, null, values);
     }
 
 //    public List<Question> getAllQuestions() {

@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,17 +18,14 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Random;
 
 
 public class QuizActivity extends AppCompatActivity {
     ArrayList<Question> quesList;
-    int count = 0;
+    int count = 1;
     String option;
     String checkedRadioButtonId;
     RadioButton radioBtn;
@@ -53,16 +51,29 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form);
 
-        category = getIntent().getStringExtra("Category");
+
         db = new DatabaseHelper(this);
         hashMap = new LinkedHashMap<>();
 
+        Toolbar toolbar=(Toolbar) findViewById(R.id.toolbar);
 
-        quesList = db.getAllQuestions(category, "1");
+        Bundle bundle=getIntent().getExtras();
+        if(!(bundle==null)){
+             category=bundle.getString("category");
+            userKey=bundle.getString("userkey");
+            quesList = db.getAllQuestions(category, "1");
 
-        Random rand = new Random();
-        int x = rand.nextInt(400000);
-        userKey = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime()) + x;
+
+            toolbar.setTitle(category);
+            toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        }
+
+
+
+
+
+
 
         roboto_med =  Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
         roboto_reg =  Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
@@ -111,8 +122,10 @@ public class QuizActivity extends AppCompatActivity {
                         finish();
                         Toast.makeText(getApplicationContext(), "no more question", Toast.LENGTH_LONG).show();
                     } else {
+                        count++;
                         quesList = db.getAllQuestions(category, checkedRadioButtonId);
                         setQuestionView(quesList);
+                       // Toast.makeText(getApplicationContext(),"hi"+quesList,Toast.LENGTH_LONG).show();
 //                        categoryQuestList = db.categoryList() ;
 //                        categoryQuestionView(categoryQuestList);
                     }
@@ -128,7 +141,7 @@ public class QuizActivity extends AppCompatActivity {
     private void setQuestionView(ArrayList<Question> arrayList) {
         if (!arrayList.isEmpty()) {
 
-            count++;
+
             radioGroup = (RadioGroup) findViewById(R.id.options_radioGroup);
             if (!hashMap.isEmpty()) {
                 hashMap.clear();
@@ -185,6 +198,7 @@ public class QuizActivity extends AppCompatActivity {
 
                             checkedRadioButtonId = fetchSubstring(String.valueOf(radioGroup.getCheckedRadioButtonId()));
 
+                            //Toast.makeText(getApplicationContext(),option+"  "+checkedRadioButtonId,Toast.LENGTH_LONG).show();
                             return;
                         }
                     }
