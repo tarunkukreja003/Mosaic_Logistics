@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tarunkukreja.event_log_sponsor.Final.ShowFinalResult;
 import com.example.tarunkukreja.event_log_sponsor.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -115,7 +116,7 @@ public class QuizActivity extends AppCompatActivity {
 
                     if (checkedRadioButtonId.matches("100")) {
 
-                        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ShowFinalResult.class);
                         intent.putExtra("category", category);
                         intent.putExtra("userkey", userKey);
                         startActivity(intent);

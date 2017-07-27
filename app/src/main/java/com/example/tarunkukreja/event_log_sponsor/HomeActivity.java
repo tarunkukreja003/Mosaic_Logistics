@@ -3,10 +3,11 @@ package com.example.tarunkukreja.event_log_sponsor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 
 import com.androidnetworking.AndroidNetworking;
-import com.example.tarunkukreja.event_log_sponsor.Database.DatabaseSubCategory;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,9 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
 
     ListView listView ;
+    LinearLayoutManager horizontalLayoutManagaer;
+
+    RecyclerView horizontal_recycler_view;
 
     String url = "http://eventsmosaic.in/App_Assets/" ;
     String png = ".png" ;
@@ -25,16 +29,23 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DatabaseSubCategory databaseSubCategory=new DatabaseSubCategory(getApplicationContext());
+        setContentView(R.layout.subcategory_grid);
+
+
+        horizontalLayoutManagaer = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        horizontal_recycler_view = (RecyclerView) findViewById(R.id.recyclerHome);
+
+        horizontal_recycler_view.setHasFixedSize(true);
+        horizontal_recycler_view.setLayoutManager(horizontalLayoutManagaer);
        // databaseSubCategory.addQuestionsData();
         AndroidNetworking.initialize(getApplicationContext());
 
 //        setContentView(R.layout.subcategory_grid);
 //        Intent intent = new Intent(HomeActivity.this, QuizActivity.class) ;
 //        startActivity(intent);
-        setContentView(R.layout.subcategory_grid);
 
-        listView = (ListView)findViewById(R.id.list_view) ;
+
+
 
         ArrayList<CustomClass> list = new ArrayList<>() ;
         list.add(new CustomClass("Event Setup", url + "event_setup_vendor" + png)) ;
@@ -49,8 +60,9 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new CustomClass("Parties", url +"parties_vendor"+ png)) ;
         list.add(new CustomClass("Event Staffing", url +"anchor_vendor"+ png)) ;
 
-        SubCategoryAdapter categoryAdapter = new SubCategoryAdapter(HomeActivity.this, list) ;
-        listView.setAdapter(categoryAdapter);
+        SubCategoryAdapter customAdapter = new SubCategoryAdapter(getApplicationContext(), list);
+        horizontal_recycler_view.setAdapter(customAdapter);
+
 
 //        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override

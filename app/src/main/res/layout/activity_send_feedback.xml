@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/ratingAbovetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="@dimen/text_margin_4dp"
+            android:padding="@dimen/text_margin_10dp"
+            android:text="Provide us with your feedback to help us improve the app" />
+
+        <RatingBar
+            android:id="@+id/ratingBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/ratingAbovetext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/text_margin_70dp" />
+
+
+        <EditText
+            android:id="@+id/ratingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingBar1"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:background="@drawable/event_desc_box"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/title"
+            android:inputType="text|textMultiLine"
+            android:minHeight="@dimen/text_margin_30dp"
+            android:paddingBottom="5dp"
+            android:paddingEnd="@dimen/dimen20dp"
+            android:paddingStart="@dimen/dimen20dp"
+            android:paddingTop="5dp" />
+
+        <EditText
+            android:id="@+id/ratingDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingTitle"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:background="@drawable/event_desc_box"
+            android:ems="10"
+
+            android:gravity="start|top"
+            android:hint="@string/description"
+            android:inputType="text|textMultiLine"
+            android:minHeight="@dimen/nav_header_height"
+            android:paddingBottom="5dp"
+            android:paddingEnd="@dimen/dimen20dp"
+            android:paddingStart="@dimen/dimen20dp"
+            android:paddingTop="5dp" />
+
+        <TextView
+            android:id="@+id/ratingBelowtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ratingDescription"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="5dp"
+            android:lineSpacingExtra="@dimen/text_margin_4dp"
+            android:padding="@dimen/text_margin_10dp"
+            android:text="Note :- Your username and device information will be included automatically." />
+
+
+        <TextView
+            android:id="@+id/artistFormSendEmail"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/dimen50dp"
+
+            android:layout_below="@+id/ratingBelowtext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/text_margin_30dp"
+            android:background="@drawable/solid_button"
+            android:gravity="center"
+            android:onClick="SendFeedBack"
+            android:text="Submit"
+
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/textsize16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</ScrollView>

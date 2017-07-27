@@ -44,7 +44,6 @@
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,21 +62,25 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".Database.ResultActivity"></activity>
+        <activity android:name=".Database.ResultActivity" />
         <activity
             android:name=".Database.CategoryActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".contactUs.contactus"
             android:screenOrientation="portrait" />
-        <activity android:name=".SubCategory.SubCategoryActivity"
-            android:screenOrientation="portrait"
-            >
-
-        </activity>
+        <activity
+            android:name=".SubCategory.SubCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Rateus.SendFeedback"
+            android:label="Send Feedback"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Final.ShowFinalResult"
+            android:label="Order Summary"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

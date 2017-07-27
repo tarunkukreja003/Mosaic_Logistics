@@ -4,7 +4,7 @@ package com.example.tarunkukreja.event_log_sponsor;
  * Created by tarunkukreja on 07/07/17.
  */
 
-class CustomClass {
+public class CustomClass {
 
     String category_text ;
     String sub_category_text ;
@@ -18,6 +18,25 @@ class CustomClass {
     String merchandise_name ;
     String merchandise_price ;
     String image ;
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    String question ;
+    String answer ;
 
 
     public CustomClass(String venue_name, String image) {

@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
 /**
  * Created by tarunkukreja on 07/07/17.
  */
@@ -27,17 +25,17 @@ public class MerchandiseFrag extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        listView = (ListView) view.findViewById(R.id.list_view) ;
-        ArrayList<CustomClass> list = new ArrayList<>() ;
-        list.add(new CustomClass("T-Shirts"," Designing & Printing starting at Rs.500")) ;
-        list.add(new CustomClass("Mugs", "Designing & Printing starting at Rs.500")) ;
-        list.add(new CustomClass("Corporate Stationary", "Designing & Printing starting at Rs.500")) ;
-        list.add(new CustomClass("Customised Merchandise", "Designing & Printing starting at Rs.500")) ;
-        list.add(new CustomClass("Gifts", "Designing & Printing starting at Rs.500")) ;
-        list.add(new CustomClass("Standees/Flexes/Banners", "Designing & Printing starting at Rs.500")) ;
-
-        MerchandiseAdapter merchandiseAdapter = new MerchandiseAdapter(getActivity(), list) ;
-        listView.setAdapter(merchandiseAdapter);
+//        listView = (ListView) view.findViewById(R.id.list_view) ;
+//        ArrayList<CustomClass> list = new ArrayList<>() ;
+//        list.add(new CustomClass("T-Shirts"," Designing & Printing starting at Rs.500")) ;
+//        list.add(new CustomClass("Mugs", "Designing & Printing starting at Rs.500")) ;
+//        list.add(new CustomClass("Corporate Stationary", "Designing & Printing starting at Rs.500")) ;
+//        list.add(new CustomClass("Customised Merchandise", "Designing & Printing starting at Rs.500")) ;
+//        list.add(new CustomClass("Gifts", "Designing & Printing starting at Rs.500")) ;
+//        list.add(new CustomClass("Standees/Flexes/Banners", "Designing & Printing starting at Rs.500")) ;
+//
+//        MerchandiseAdapter merchandiseAdapter = new MerchandiseAdapter(getActivity(), list) ;
+//        listView.setAdapter(merchandiseAdapter);
     }
 
 

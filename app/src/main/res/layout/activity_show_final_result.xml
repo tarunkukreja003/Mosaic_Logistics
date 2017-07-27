@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tarunkukreja.event_log_sponsor.Final.ShowFinalResult">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbar12"
+        android:background="?attr/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_marginStart="@dimen/text_margin_10dp"
+            android:layout_toEndOf="@+id/showFinalClear"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+
+           />
+
+        <ImageView
+            android:id="@+id/showFinalClear"
+            android:layout_marginStart="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_clear_white_24dp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/showFinalCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/toolbar12"
+        android:layout_marginEnd="@dimen/text_margin_10dp"
+        android:layout_marginTop="@dimen/text_margin_10dp"
+        android:padding="@dimen/text_margin_10dp"
+        android:text="My category : Photography"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize18sp" />
+
+    <TextView
+        android:id="@+id/showFinalDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/showFinalCategory"
+        android:layout_marginEnd="@dimen/dimen20dp"
+
+        android:text="July 25 , 2018" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showFinalDate"
+        android:layout_marginTop="@dimen/text_margin_10dp">
+
+        <ListView
+            android:id="@+id/showFinalListview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"
+            android:dividerHeight="0dp" />
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
