@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true">
 
     <RelativeLayout
-        android:id="@+id/t"
+        android:id="@+id/rela_layout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
@@ -20,7 +20,7 @@
             app:titleTextColor="@color/white"
             />
         <TextView
-            android:id="@+id/form_questionNumber"
+            android:id="@+id/form_questionNumber_category"
             android:layout_width="30dp"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentEnd="true"
@@ -33,7 +33,7 @@
         android:id="@+id/radio_buttons_linear_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/t"
+        android:layout_below="@+id/rela_layout"
         android:padding="16dp">
 
         <TextView
@@ -53,7 +53,8 @@
             android:layout_below="@+id/question_text_category_dec"
             android:layout_marginTop="30dp"
             android:choiceMode="singleChoice"
-            android:divider="@null">
+            android:divider="@null"
+            android:dividerHeight="0dp">
 
         </ListView>
 

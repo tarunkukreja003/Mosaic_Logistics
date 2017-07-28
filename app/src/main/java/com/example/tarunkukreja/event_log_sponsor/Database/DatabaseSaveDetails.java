@@ -91,7 +91,7 @@ public class DatabaseSaveDetails extends SQLiteOpenHelper {
                 quest.setID(cursor.getInt((cursor.getColumnIndex(KEY_ID))));
                 quest.setQuestion(cursor.getString((cursor.getColumnIndex(KEY_QUESTION))));
                 quest.setCategory(cursor.getString((cursor.getColumnIndex(KEY_CATEGORY))));
-                quest.settotalQuestions(cursor.getString((cursor.getColumnIndex(KEY_USERKEY))));
+                quest.settotalQuestions(cursor.getInt((cursor.getColumnIndex(KEY_USERKEY))));
                 quest.setOption(cursor.getString((cursor.getColumnIndex(KEY_OPTION))));
 
 

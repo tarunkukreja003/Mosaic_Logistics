@@ -1,6 +1,7 @@
 package com.example.tarunkukreja.event_log_sponsor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.support.annotation.LayoutRes;
@@ -18,6 +19,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.BitmapRequestListener;
+import com.example.tarunkukreja.event_log_sponsor.Database.CategoryActivity;
 
 import java.util.ArrayList;
 
@@ -39,21 +41,15 @@ public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
     public class CategoryViewHolder{
         TextView product_name ;
         ImageView log_back_image ;
-        TextView rent_price ;
-        TextView buying_price ;
-        TextView rent_text ;
-        TextView buying_text ;
+        View rootView ;
 
 
 
         public CategoryViewHolder(View view){
-            // circular_image = (ImageView)view.findViewById(R.id.imageView_list) ;
+
+            rootView = view ;
             product_name = (TextView) view.findViewById(R.id.category_text) ;
             log_back_image = (ImageView)view.findViewById(R.id.logis_back_image) ;
-//            rent_price = (TextView) view.findViewById(R.id.event_setup_category_rent_price) ;
-//            buying_price = (TextView) view.findViewById(R.id.event_setup_category_buying_price) ;
-//            rent_text = (TextView) view.findViewById(R.id.event_setup_category_rent_text) ;
-//            buying_text = (TextView) view.findViewById(R.id.event_setup_category_buying_text) ;
 
         }
     }
@@ -62,7 +58,7 @@ public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, final @NonNull ViewGroup parent) {
 
         Typeface mRoboto_medium = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf") ;
         Typeface mRoboto_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf") ;
@@ -100,18 +96,40 @@ public class SubCategoryAdapter extends ArrayAdapter<CustomClass> {
                         Log.d("Adapter", "Error loading images") ;
                     }
                 });
-//        categoryViewHolder.rent_price.setText(customClass.getRent_price());
-//        categoryViewHolder.buying_price.setText(customClass.getBuying_price());
-//        categoryViewHolder.buying_text.setText(customClass.getBuying_text());
-//        Log.d("Custom Adapter", customClass.getBuying_text()) ;
-//        categoryViewHolder.rent_text.setText(customClass.getRent_text());
-//        Log.d("Custom Adapter", customClass.getRent_text()) ;
-//        categoryViewHolder.rent_price.setTypeface(mRoboto_medium);
-//        categoryViewHolder.buying_price.setTypeface(mRoboto_medium);
 
-//        categoryViewHolder.rent_text.setTypeface(mRoboto_reg);
-//        categoryViewHolder.buying_text.setTypeface(mRoboto_reg);
 
+
+        switch (position){
+
+            case 1:
+                Log.d("Adapter", "Case 1: " + position) ;
+                categoryViewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), CategoryActivity.class);
+                    intent.putExtra("the_category", "Photography & Videography");
+                    getContext().startActivity(intent);
+                }
+            });
+                break;
+
+            case 2 :
+                Log.d("Adapter", "Case 2: " + position) ;
+                categoryViewHolder.rootView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), CategoryActivity.class);
+                    intent.putExtra("the_category", "Food & Beverages");
+                    getContext().startActivity(intent);
+                }
+            });
+                break;
+
+            default :
+
+                break;
+
+        }
         return convertView;
     }
 }

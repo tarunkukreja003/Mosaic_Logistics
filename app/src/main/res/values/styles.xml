@@ -19,6 +19,14 @@
     <style name="CategoriesTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
     </style>
+    <style name="ProgressBarStyle" parent="android:Widget.ProgressBar.Horizontal">
+
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">30dip</item>
+
+    </style>
+
+    <!--android:Widget.ProgressBar.Horizontal-->
 
 
 

@@ -21,7 +21,7 @@ public class contactus extends AppCompatActivity {
     }
 
     public void ContactUsViaMail(View view) {
-        help.composeEmail(context,"markitier.info@gmail.com","");
+        help.composeEmail(context,"contactus@eventsmosaic.in","");
     }
 
     public void ContactUsViaWebsite(View view) {

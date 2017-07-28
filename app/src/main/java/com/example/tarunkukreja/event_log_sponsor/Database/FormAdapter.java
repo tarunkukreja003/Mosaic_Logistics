@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.tarunkukreja.event_log_sponsor.R;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -23,37 +24,44 @@ import java.util.ArrayList;
 
 public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 
-    private RadioButton selected = null ;
-    private int lastCheckedPos = 0 ;
-    int id ;
-    int selPos = -1 ;
+    private static final String LOG_TAG = FormAdapter.class.getSimpleName();
 
-    OnItemClick onItemClick ;
+    private RadioButton selected = null;
+    private int lastCheckedPos = 0;
+    int id;
+    int selPos = -1;
 
-    ArrayList<FormCustomClass> radioButtonList ;
+    Context context;
 
+    OnItemClick onItemClick;
 
+    ArrayList<FormCustomClass> radioButtonList;
+    Typeface roboto_reg ;
+    Typeface roboto_med ;
 
 
 
     public FormAdapter(@NonNull Context context, @LayoutRes int resource) {
         super(context, resource);
     }
-    public FormAdapter(Context context, ArrayList<FormCustomClass> arrayList){
+
+    public FormAdapter(Context context, ArrayList<FormCustomClass> arrayList) {
         super(context, 0, arrayList);
-        radioButtonList = arrayList ;
+        radioButtonList = arrayList;
     }
 
 
-
-    public class FormViewHolder{
-       RadioButton radioButton ;
-       RadioGroup radioGroup ;
+    public class FormViewHolder {
 
 
-        public FormViewHolder(View view){
-            radioButton = (RadioButton)view.findViewById(R.id.radioButton) ;
-            radioGroup = (RadioGroup)view.findViewById(R.id.main_category_rg) ;
+        RadioButton radioButton;
+        RadioGroup radioGroup;
+
+
+        public FormViewHolder(View view) {
+
+            radioButton = (RadioButton) view.findViewById(R.id.radioButton);
+            radioGroup = (RadioGroup) view.findViewById(R.id.main_category_rg);
         }
 
     }
@@ -62,17 +70,21 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull final ViewGroup parent) {
 
-        Typeface roboto_med = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf");
-        Typeface roboto_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
-        FormCustomClass formCustomClass = getItem(position) ;
-        FormViewHolder formViewHolder = null ;
+        Log.d(LOG_TAG, "ArrayList: " + new Gson().toJson(radioButtonList));
 
-        if(convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.form_radio_button, parent, false);
-                formViewHolder = new FormViewHolder(convertView) ;
-                convertView.setTag(formViewHolder);
-            }else {
-            formViewHolder = (FormViewHolder)convertView.getTag() ;
+       roboto_med = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Medium.ttf");
+       roboto_reg = Typeface.createFromAsset(getContext().getAssets(), "fonts/Roboto-Regular.ttf");
+
+        FormCustomClass formCustomClass = getItem(position);
+
+        FormViewHolder formViewHolder = null;
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.form_radio_button, parent, false);
+            formViewHolder = new FormViewHolder(convertView);
+            convertView.setTag(formViewHolder);
+        } else {
+            formViewHolder = (FormViewHolder) convertView.getTag();
         }
 
         final FormViewHolder finalFormViewHolder = formViewHolder;
@@ -84,13 +96,13 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
                 Log.d("Adapter", "Inside Radio Button onClick");
                 Log.d("Adapter", "Position of Radio Button Clicked " + position);
 
-                if(selected != null){
+                if (selected != null) {
                     selected.setChecked(false);
                 }
 
                 finalFormViewHolder.radioButton.setChecked(true);
 
-                selected = finalFormViewHolder.radioButton ;
+                selected = finalFormViewHolder.radioButton;
 
                 try {
                     onItemClick = (OnItemClick) getContext();
@@ -98,17 +110,27 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
                     throw new ClassCastException(getContext().toString()
                             + " must implement OnItemClick");
                 }
-                onItemClick.onItemClick(position);
+                onItemClick.onItemClick(position, radioButtonList);
             }
         });
 
-        Log.d("Adapter", "text " + formCustomClass.getRadioButtonText()) ;
+        Log.d("Adapter", "text " + formCustomClass.getRadioButtonText());
 
         formViewHolder.radioButton.setText(formCustomClass.getRadioButtonText());
-        formViewHolder.radioButton.setTypeface(roboto_reg);
+        formViewHolder.radioButton.setTypeface(roboto_med);
 
         return convertView;
     }
+
+
+    public interface OnItemClick {
+        void onItemClick(int pos, ArrayList<FormCustomClass> formCustomClassArrayList);
+    }
+
+    public int getItemPos() {
+        return selPos;
+    }
+}
 
 
 
@@ -161,9 +183,6 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 
 
 
-    public interface OnItemClick{
-        void onItemClick(int pos);
-    }
 
 
 
@@ -222,9 +241,7 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 
 
 
-    public int getItemPos(){
-        return selPos ;
-    }
+
 
 
 //    public void selectedButton(int index){
@@ -232,4 +249,4 @@ public class FormAdapter extends ArrayAdapter<FormCustomClass> {
 //    }
 
 
-}
+

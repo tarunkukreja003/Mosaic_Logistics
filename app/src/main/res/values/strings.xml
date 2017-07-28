@@ -225,5 +225,6 @@
     <string name="markitier_info_gmail_com">markitier.info@gmail.com</string>
     <string name="_24_hour_a_day_7_days_a_week">24 hour a day , 7 days a week</string>
     <string name="contact_us">CONTACT US</string>
+    <string name="additional_info">Additional Information for Customised Requirements(Optional)</string>
 
 </resources>

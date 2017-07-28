@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:text="Room Setup"
         android:textSize="20sp"
-        android:textColor="@drawable/form_selector"
-        android:buttonTint="@drawable/form_selector"
+        android:textColor="@color/colorPrimary"
+        android:buttonTint="@color/colorPrimary"
         android:background="@drawable/ripple_sel"
         android:checked="false"/>
     </RadioGroup>

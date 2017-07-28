@@ -11,6 +11,10 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/content_frame_layout"/>
+        android:id="@+id/content_frame_layout">
+
+        <include layout="@layout/subcategory_grid"/>
+
+        </FrameLayout>
 
 </RelativeLayout>

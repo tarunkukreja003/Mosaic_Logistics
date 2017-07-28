@@ -11,9 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class NavBarActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ListView listView ;
+
+    String url = "http://eventsmosaic.in/App_Assets/" ;
+    String png = ".png" ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,25 @@ public class NavBarActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         displayScreenSelected(R.id.nav_event_setup);
+
+
+        listView = (ListView)findViewById(R.id.list_view) ;
+
+        ArrayList<CustomClass> list = new ArrayList<>() ;
+        list.add(new CustomClass("Event Setup", url + "event_setup_vendor" + png)) ;
+        list.add(new CustomClass("Transportation", url + "transport_vendor" + png)) ;
+        list.add(new CustomClass("Food & Beverages", url +"food_beverage_vendor"+ png)) ;
+        list.add(new CustomClass("Merchandise", url +"merchandise_vendor"+ png)) ;
+        list.add(new CustomClass("Security", url +"security_vendor"+ png)) ;
+        list.add(new CustomClass("Venue Booking",  url +"venue_vendor"+ png)) ;
+        list.add(new CustomClass("Event Planners & Management", url +"event_planning"+ png)) ;
+        list.add(new CustomClass("Photography & Videography", url +"photography_vendor"+ png)) ;
+        list.add(new CustomClass("Media Buying & Radio", url +"media_buying_vendor"+ png)) ;
+        list.add(new CustomClass("Parties", url +"parties_vendor"+ png)) ;
+        list.add(new CustomClass("Event Staffing", url +"anchor_vendor"+ png)) ;
+
+        SubCategoryAdapter categoryAdapter = new SubCategoryAdapter(NavBarActivity.this, list) ;
+        listView.setAdapter(categoryAdapter);
     }
 
     @Override

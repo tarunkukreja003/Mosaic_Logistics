@@ -2,40 +2,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/t"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_marginEnd="50dp"
         android:background="?attr/colorPrimary"
         android:textColorSecondary="@color/white"
-        android:titleTextColor="@color/white"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
+        app:titleTextColor="@color/white"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
+        <TextView
                 android:id="@+id/form_questionNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:text="1/3"
-                android:layout_marginEnd="@dimen/text_margin_10dp"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
                 android:textColor="@color/white" />
-        </RelativeLayout>
-
-    </android.support.v7.widget.Toolbar>
-
+    </RelativeLayout>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t"
+        android:id="@+id/progress_bar"
+        android:progressTint="@color/colorAccent"
+        style="@style/ProgressBarStyle"
+        android:progressBackgroundTint="@color/colorPrimary"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:id="@+id/radio_buttons_linear_lay"
-        android:layout_below="@+id/toolbar">
+        android:layout_below="@+id/t">
 
         <TextView
             android:id="@+id/question_text"
@@ -53,7 +59,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/options_radioGroup"
             android:layout_marginTop="30dp"
-            android:layout_below="@+id/question_text"/>
+            android:layout_below="@+id/question_text"
+            android:padding="16dp">
+
+
+            </RadioGroup>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"

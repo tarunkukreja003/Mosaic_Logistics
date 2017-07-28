@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_date"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:textColorSecondary="@color/white"
+        app:titleTextColor="@color/white"
+        />
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="16dp"
+        android:id="@+id/date_whole_lin_lay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of the Event"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/date_text"
+            android:textSize="18sp"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/date_lin_layout"
+            android:background="@drawable/outline"
+            android:padding="10dp">
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:src="@drawable/date"/>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".8"
+                android:hint="Date"
+                android:background="@android:color/transparent"
+                android:id="@+id/date_editText"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="16dp"
+        android:layout_below="@+id/date_whole_lin_lay"
+        android:id="@+id/loc_whole_lin_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Location of the Event"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/loc_text"
+            android:textSize="18sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/outline"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location"
+                android:background="@android:color/transparent"
+                android:id="@+id/loc_editText"
+                android:inputType="textMultiLine"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="16dp"
+        android:layout_below="@id/loc_whole_lin_layout"
+        android:id="@+id/add_whole_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/additional_info"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/additional_info_text"
+            android:textSize="18sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="top"
+            android:background="@drawable/outline"
+            android:padding="16dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:id="@+id/additional_info_editText"
+                android:inputType="textMultiLine"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
+        android:layout_below="@+id/add_whole_layout"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/big_solid_box"
+            android:text="FINISH"
+            android:textColor="@color/yellow"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/form_finish_click" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+</ScrollView>

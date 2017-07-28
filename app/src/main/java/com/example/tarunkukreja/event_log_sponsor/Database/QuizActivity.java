@@ -5,8 +5,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -46,6 +50,14 @@ public class QuizActivity extends AppCompatActivity {
     Typeface roboto_med ;
     Typeface roboto_reg ;
     ColorStateList colorStateList ;
+
+
+    ProgressBar progressBar ;
+    private int progressStatus = 0;
+    private Handler handler = new Handler();
+
+    int total ;
+
 //    ArrayList<Question> categoryQuestList ;
 
     @Override
@@ -53,12 +65,21 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form);
 
+
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar) ;
+//        setSupportActionBar(toolbar);
+        toolbar.setTitle(getIntent().getStringExtra("Category"));
+
+        Log.d("QuizActivity", "Category " + getIntent().getStringExtra("Category"));
+
         category = getIntent().getStringExtra("Category");
         db = new DatabaseHelper(this);
         hashMap = new LinkedHashMap<>();
 
+        progressBar = (ProgressBar)findViewById(R.id.progress_bar) ;
 
-        quesList = db.getAllQuestions(category, "1");
+        quesList = db.getAllQuestions(getIntent().getStringExtra("Category"), "1");
 
         Random rand = new Random();
         int x = rand.nextInt(400000);
@@ -92,6 +113,7 @@ public class QuizActivity extends AppCompatActivity {
         butNext = (TextView) findViewById(R.id.next_click);
 //        categoryQuestionView(categoryQuestList);
         setQuestionView(quesList);
+        progressStatus = 0 ;
         butNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,24 +122,57 @@ public class QuizActivity extends AppCompatActivity {
 
                     DatabaseSaveDetails dbSave = new DatabaseSaveDetails(getApplicationContext());
                     // String userkey, String question, String category, String option, String questionnumber
-                    dbSave.createActivity(userKey, txtQuestion.getText().toString(), category, option, "0");
+                    dbSave.createActivity(userKey, txtQuestion.getText().toString(), getIntent().getStringExtra("Category"), option, "0");
 
                     if (checkedRadioButtonId.matches("100")) {
 
-                        Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-                        intent.putExtra("category", category);
+                        Intent intent = new Intent(getApplicationContext(), DateLocActivity.class);
+                        intent.putExtra("category", getIntent().getStringExtra("Category"));
                         intent.putExtra("userkey", userKey);
                         startActivity(intent);
                         finish();
-                        Toast.makeText(getApplicationContext(), "no more question", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(), "no more question", Toast.LENGTH_LONG).show();
                     } else {
+
                         quesList = db.getAllQuestions(category, checkedRadioButtonId);
                         setQuestionView(quesList);
-//                        categoryQuestList = db.categoryList() ;
-//                        categoryQuestionView(categoryQuestList);
+
+
+
+                            final double prog = ((double) count / (double) total) * 100;
+                         // code for horizontal progress bar
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    while (progressStatus < prog) {
+                                        // Update the progress status
+                                        progressStatus += 1;
+
+                                        // Try to sleep the thread for 20 milliseconds
+//                                        try {
+//                                            Thread.sleep((long) prog);
+//                                        } catch (InterruptedException e) {
+//                                            e.printStackTrace();
+//                                        }
+
+                                        // Update the progress bar
+                                        handler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                progressBar.setProgress(progressStatus);
+                                                // Show the progress on TextView
+                                                String prg_state = progressStatus + " % ";
+                                                textViewCount.setText(prg_state);
+                                            }
+                                        });
+                                    }
+                                }
+                            }).start();
+
+
                     }
                 } else {
-                    Toast.makeText(getApplicationContext(), "", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please Select an option", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -128,6 +183,7 @@ public class QuizActivity extends AppCompatActivity {
     private void setQuestionView(ArrayList<Question> arrayList) {
         if (!arrayList.isEmpty()) {
 
+//            progressStatus += 1 ;
             count++;
             radioGroup = (RadioGroup) findViewById(R.id.options_radioGroup);
             if (!hashMap.isEmpty()) {
@@ -135,7 +191,9 @@ public class QuizActivity extends AppCompatActivity {
                 radioGroup.removeAllViews();
             }
 
-            textViewCount.setText(count + "/" + (arrayList.get(0).getTotalQuestions())); // + 1 for 1st question that decides the category
+            total = arrayList.get(0).getTotalQuestions() ;
+
+         //   textViewCount.setText(count + "/" + (arrayList.get(0).getTotalQuestions())); // + 1 for 1st question that decides the category
             txtQuestion.setText(arrayList.get(0).getQuestion());
 
             Gson gson = new Gson();
@@ -148,25 +206,24 @@ public class QuizActivity extends AppCompatActivity {
                 i++;
                 radioBtn = new RadioButton(this);
                 radioBtn.setText(map.getKey().toString());
-                radioBtn.setTextColor(getResources().getColor(R.color.colorPrimary));
+
                 radioBtn.setBackground(getResources().getDrawable(R.drawable.ripple_sel));
                 radioBtn.setPadding(16, 16, 16, 16);
                 RadioGroup.LayoutParams params
                         = new RadioGroup.LayoutParams(QuizActivity.this, null);
                 params.setMargins(0, 0, 0, 30);
+                radioBtn.setTextColor(getResources().getColor(R.color.colorPrimary));
                 radioBtn.setLayoutParams(params);
-                radioBtn.setTypeface(roboto_reg);
+                radioBtn.setTypeface(roboto_med);
                 radioBtn.setTextSize(20);
-                radioBtn.setHighlightColor(getResources().getColor(R.color.colorAccent));
-//                if(radioBtn.isChecked()){
-//                    radioBtn.setTypeface(roboto_med);
-//                }
 
                 if(Build.VERSION.SDK_INT>=21){
                     radioBtn.setButtonTintList(colorStateList);
                     radioBtn.invalidate(); //could not be necessary
                 }
 //                radioBtn.setButtonDrawable(getResources().getDrawable(R.drawable.form_selector));
+
+
 
 
                 String value = map.getValue().toString();
@@ -182,7 +239,7 @@ public class QuizActivity extends AppCompatActivity {
                         radioBtn = (RadioButton) rg.getChildAt(i);
                         if (radioBtn.getId() == checkedId) {
                             option = radioBtn.getText().toString();
-
+                            radioBtn.setBackground(getResources().getDrawable(R.drawable.ripple_sel));
                             checkedRadioButtonId = fetchSubstring(String.valueOf(radioGroup.getCheckedRadioButtonId()));
 
                             return;
@@ -211,6 +268,8 @@ public class QuizActivity extends AppCompatActivity {
 
         return sum;
     }
+
+
 
 //    private void categoryQuestionView(ArrayList<Question> categoryQuestList){
 //        if(!categoryQuestList.isEmpty()){

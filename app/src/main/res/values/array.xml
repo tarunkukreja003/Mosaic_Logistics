@@ -2,6 +2,8 @@
 <resources>
     <string-array name="category_questions">
         <item>What are you looking for ?</item>
+        <item>Food Catering and Beverages</item>
+
 
     </string-array>
 </resources>

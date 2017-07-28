@@ -11,9 +11,14 @@
             android:icon="@drawable/ic_menu_send"
             android:title="Event Mosaic App" />
         <item
-            android:id="@+id/nav_venue_booking"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Log Out" />
+            android:id="@+id/nvj"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share with Friends" />
+        <item
+            android:id="@+id/fddf"
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="Feedback" />
+
         <item
             android:id="@+id/nav_merchandise"
             android:icon="@drawable/ic_info_black_24dp"
@@ -26,6 +31,11 @@
             android:id="@+id/nav_food_beverage"
             android:icon="@drawable/ic_contact_mail_black_24dp"
             android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_venue_booking"
+            android:icon="@drawable/ic_assignment_return_black_24dp"
+            android:title="Log Out" />
+
 
 
     </group>

@@ -9,10 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.example.tarunkukreja.event_log_sponsor.R;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -22,15 +22,22 @@ import java.util.ArrayList;
 
 public class CategoryActivity extends AppCompatActivity implements FormAdapter.OnItemClick {
 
+    private static final String LOG_TAG = CategoryActivity.class.getSimpleName() ;
 
     ListView category_listView ;
-    RadioButton radioButton ;
+
     TextView next_click_btn ;
     TextView question_category_text ;
-    int positon1 ;
-    int radioId ;
+
 
     String[] category_questions ;
+
+
+
+    ArrayList<FormCustomClass> photo_category_list ;
+    ArrayList<FormCustomClass> food_list ;
+
+    FormAdapter formAdapter ;
 
 
 
@@ -44,11 +51,9 @@ public class CategoryActivity extends AppCompatActivity implements FormAdapter.O
         setContentView(R.layout.activity_category);
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar12) ;
-//        setSupportActionBar(toolbar);
-        toolbar.setTitle("Photography/Videography");
-       // toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        //        setSupportActionBar(toolbar);
+        Log.d(LOG_TAG, "Category: " + getIntent().getStringExtra("the_category"));
 
-        radioButton = new RadioButton(this);
 
         category_questions = getResources().getStringArray(R.array.category_questions) ;
 
@@ -57,51 +62,114 @@ public class CategoryActivity extends AppCompatActivity implements FormAdapter.O
         category_listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         next_click_btn = (TextView) findViewById(R.id.next_click);
         question_category_text = (TextView) findViewById(R.id.question_text_category_dec);
-
-        question_category_text.setText(category_questions[0]);
         question_category_text.setTypeface(roboto_med);
 
-        final ArrayList<FormCustomClass> photo_category_list = new ArrayList<>();
-        photo_category_list.add(new FormCustomClass("Photographer"));
-        photo_category_list.add(new FormCustomClass("Videographer"));
 
-        final FormAdapter formAdapter = new FormAdapter(this, photo_category_list);
-        category_listView.setAdapter(formAdapter);
+        switch (getIntent().getStringExtra("the_category")) {
+            case "Photography & Videography":
 
-        Log.d("CategoryActivity", "Pos " + positon1);
+                toolbar.setTitle("Photography & Videography");
+
+                question_category_text.setText(category_questions[0]);
+
+
+                photo_category_list = new ArrayList<>();
+                photo_category_list.add(new FormCustomClass("Photographer"));
+                photo_category_list.add(new FormCustomClass("Videographer"));
+                formAdapter = new FormAdapter(this, photo_category_list);
+                category_listView.setAdapter(formAdapter);
+                break;
+
+            case "Food & Beverages" :
+                toolbar.setTitle("Food & Beverages");
+
+                question_category_text.setText(category_questions[1]);
+                food_list  = new ArrayList<>();
+                food_list.add(new FormCustomClass("Food Catering"));
+                food_list.add(new FormCustomClass("Beverages"));
+                formAdapter  = new FormAdapter(this, food_list);
+                category_listView.setAdapter(formAdapter);
+                break;
+            default: Log.d(LOG_TAG, "Wrong Option") ;
+                break;
+        }
+
 
 
     }
 
     @Override
-    public void onItemClick(int pos) {
+    public void onItemClick(int pos, ArrayList<FormCustomClass> formCustomClassArrayList) {
 
         Log.d("CategoryActivity", "Pos from Interface " + pos);
+        Log.d("CategoryActivity", "ArrayList from Interface " + new Gson().toJson(formCustomClassArrayList));
 
-        switch (pos) {
-            case 0:
-                next_click_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
-                        intent.putExtra("Category", "Photography");
-                        startActivity(intent);
-                    }
-                });
+        Log.d(LOG_TAG, "Position 0 text " + formCustomClassArrayList.get(0).getRadioButtonText());
+
+            switch (formCustomClassArrayList.get(0).getRadioButtonText()) {
+
+                case "Photographer" :
+
+
+                switch (pos) {
+                    case 0:
+                        next_click_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
+                                intent.putExtra("Category", "Photography");
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    case 1:
+                        next_click_btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
+                                intent.putExtra("Category", "Videography");
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    default:
+                        Log.d("CategoryActivity", "Wrong Option");
+                        break;
+                }
                 break;
-            case 1:
-                next_click_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
-                        intent.putExtra("Category", "Videography");
-                        startActivity(intent);
+
+                case "Food Catering" :
+
+                    switch (pos) {
+                        case 0:
+                            next_click_btn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
+                                    intent.putExtra("Category", "Food");
+                                    startActivity(intent);
+                                }
+                            });
+                            break;
+                        case 1:
+                            next_click_btn.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
+                                    intent.putExtra("Category", "Beverages");
+                                    startActivity(intent);
+                                }
+                            });
+                            break;
+                        default:
+                            Log.d("CategoryActivity", "Wrong Option");
+                            break;
                     }
-                });
-                break;
-            default:
-                Log.d("CategoryActivity", "Wrong Option");
-        }
+
+                    break;
+
+
+            }
     }
 
 //        next_click_btn.setOnClickListener(new View.OnClickListener() {
