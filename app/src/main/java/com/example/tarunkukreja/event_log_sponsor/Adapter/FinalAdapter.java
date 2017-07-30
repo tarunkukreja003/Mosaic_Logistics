@@ -18,14 +18,14 @@ import java.util.List;
  * Created by deepak on 27/07/17.
  */
 
-public class FinalRecyclerAdapter extends BaseAdapter {
+public class FinalAdapter extends BaseAdapter {
     private Context context;
     private List<SaveDetails> rowItems;
 
 
     int countnumber = 0;
 
-    public FinalRecyclerAdapter(Context context, List<SaveDetails> items) {
+    public FinalAdapter(Context context, List<SaveDetails> items) {
         this.context = context;
         this.rowItems = items;
     }

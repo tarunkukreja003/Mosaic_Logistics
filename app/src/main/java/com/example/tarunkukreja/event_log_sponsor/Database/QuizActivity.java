@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -57,6 +56,7 @@ public class QuizActivity extends AppCompatActivity {
     private Handler handler = new Handler();
 
     int total ;
+    String backToQuiz;
 
 //    ArrayList<Question> categoryQuestList ;
 
@@ -71,9 +71,10 @@ public class QuizActivity extends AppCompatActivity {
 //        setSupportActionBar(toolbar);
         toolbar.setTitle(getIntent().getStringExtra("Category"));
 
-        Log.d("QuizActivity", "Category " + getIntent().getStringExtra("Category"));
+       // Log.d("QuizActivity", "Category " + getIntent().getStringExtra("Category"));
 
         category = getIntent().getStringExtra("Category");
+
         db = new DatabaseHelper(this);
         hashMap = new LinkedHashMap<>();
 
@@ -126,11 +127,20 @@ public class QuizActivity extends AppCompatActivity {
 
                     if (checkedRadioButtonId.matches("100")) {
 
-                        Intent intent = new Intent(getApplicationContext(), DateLocActivity.class);
-                        intent.putExtra("category", getIntent().getStringExtra("Category"));
-                        intent.putExtra("userkey", userKey);
-                        startActivity(intent);
-                        finish();
+//                        if(backToQuiz.equals("true")){
+//                            Intent intent = new Intent(getApplicationContext(), ShowFinalResult.class);
+//                            intent.putExtra("category", getIntent().getStringExtra("Category"));
+//                            intent.putExtra("userkey", userKey);
+//                            startActivity(intent);
+//                            finish();
+//                        }else {
+                            Intent intent = new Intent(getApplicationContext(), DateLocActivity.class);
+                            intent.putExtra("category", getIntent().getStringExtra("Category"));
+                            intent.putExtra("userkey", userKey);
+                            startActivity(intent);
+                            finish();
+                        //}
+
 //                        Toast.makeText(getApplicationContext(), "no more question", Toast.LENGTH_LONG).show();
                     } else {
 

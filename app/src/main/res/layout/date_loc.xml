@@ -6,159 +6,159 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_date"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:textColorSecondary="@color/white"
-        app:titleTextColor="@color/white"
-        />
-
-    <LinearLayout
-        android:layout_below="@+id/toolbar_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_margin="16dp"
-        android:id="@+id/date_whole_lin_lay">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date of the Event"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/date_text"
-            android:textSize="18sp"/>
-
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_date"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:textColorSecondary="@color/white"
+            app:titleTextColor="@color/white" />
 
         <LinearLayout
+            android:id="@+id/date_whole_lin_lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="1"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:id="@+id/date_lin_layout"
-            android:background="@drawable/outline"
+            android:layout_below="@+id/toolbar_date"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
             android:padding="10dp">
 
+            <TextView
+                android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Date of the Event"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
 
-            <ImageView
-                android:layout_width="0dp"
+
+            <LinearLayout
+                android:id="@+id/date_lin_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".2"
-                android:src="@drawable/date"/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".8"
-                android:hint="Date"
-                android:background="@android:color/transparent"
-                android:id="@+id/date_editText"
-                />
+                android:background="@drawable/outline"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:weightSum="1">
+
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:src="@drawable/date" />
+
+                <EditText
+                    android:id="@+id/date_editText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:background="@android:color/transparent"
+                    android:hint="Date" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_margin="16dp"
-        android:layout_below="@+id/date_whole_lin_lay"
-        android:id="@+id/loc_whole_lin_layout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Location of the Event"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/loc_text"
-            android:textSize="18sp"/>
-
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/loc_whole_lin_layout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/outline"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/date_whole_lin_lay"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/loc_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Location of the Event"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/outline"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp">
+
+                <EditText
+                    android:id="@+id/loc_editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="Location"
+                    android:inputType="textMultiLine" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/add_whole_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loc_whole_lin_layout"
+            android:layout_margin="16dp"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/additional_info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/additional_info"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="18sp" />
+
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Location"
-                android:background="@android:color/transparent"
-                android:id="@+id/loc_editText"
-                android:inputType="textMultiLine"/>
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_margin="16dp"
-        android:layout_below="@id/loc_whole_lin_layout"
-        android:id="@+id/add_whole_layout">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/additional_info"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/additional_info_text"
-            android:textSize="18sp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:gravity="top"
-            android:background="@drawable/outline"
-            android:padding="16dp">
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
                 android:id="@+id/additional_info_editText"
-                android:inputType="textMultiLine"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/event_desc_box"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="text|textMultiLine"
+                android:minHeight="@dimen/nav_header_height"
+                android:paddingBottom="5dp"
+                android:paddingEnd="@dimen/dimen20dp"
+                android:paddingStart="@dimen/dimen20dp"
+                android:paddingTop="5dp" />
+
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/add_whole_layout"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/form_finish_click"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@drawable/big_solid_box"
+                android:gravity="center"
+                android:text="FINISH"
+                android:textColor="@color/yellow"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </RelativeLayout>
 
-    </LinearLayout>
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginBottom="16dp"
-        android:layout_below="@+id/add_whole_layout"
-        android:layout_margin="16dp">
-
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/big_solid_box"
-            android:text="FINISH"
-            android:textColor="@color/yellow"
-            android:layout_centerInParent="true"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:id="@+id/form_finish_click" />
     </RelativeLayout>
-
-
-</RelativeLayout>
 
 </ScrollView>

@@ -44,7 +44,7 @@ public class NavBarActivity extends AppCompatActivity
         displayScreenSelected(R.id.nav_event_setup);
 
 
-        listView = (ListView)findViewById(R.id.list_view) ;
+        listView = (ListView)findViewById(R.id.recyclerHome) ;
 
         ArrayList<CustomClass> list = new ArrayList<>() ;
         list.add(new CustomClass("Event Setup", url + "event_setup_vendor" + png)) ;

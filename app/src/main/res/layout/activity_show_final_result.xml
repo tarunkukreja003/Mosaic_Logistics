@@ -1,70 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.tarunkukreja.event_log_sponsor.Final.ShowFinalResult">
 
-
     <RelativeLayout
-        android:id="@+id/toolbar12"
-        android:background="?attr/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_marginStart="@dimen/text_margin_10dp"
-            android:layout_toEndOf="@+id/showFinalClear"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/toolbar12"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary">
 
-           />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginStart="@dimen/text_margin_10dp"
+                android:layout_toEndOf="@+id/showFinalClear"
 
-        <ImageView
-            android:id="@+id/showFinalClear"
-            android:layout_marginStart="5dp"
+                />
+
+            <ImageView
+                android:id="@+id/showFinalClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:onClick="CloseShowFinal"
+                android:padding="@dimen/text_margin_10dp"
+                android:src="@drawable/ic_clear_white_24dp" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/showFinalCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_clear_white_24dp" />
-    </RelativeLayout>
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/toolbar12"
+            android:layout_marginEnd="@dimen/text_margin_10dp"
+            android:layout_marginTop="@dimen/text_margin_10dp"
+            android:padding="@dimen/text_margin_10dp"
+            android:text="My category : Photography"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp" />
+
+        <TextView
+            android:id="@+id/showFinalCurrentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/showFinalCategory"
+            android:layout_marginEnd="@dimen/dimen20dp"
+
+            android:text="July 25 , 2018" />
 
 
-    <TextView
-        android:id="@+id/showFinalCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/toolbar12"
-        android:layout_marginEnd="@dimen/text_margin_10dp"
-        android:layout_marginTop="@dimen/text_margin_10dp"
-        android:padding="@dimen/text_margin_10dp"
-        android:text="My category : Photography"
-        android:textColor="@color/black"
-        android:textSize="@dimen/textsize18sp" />
+        <TextView
+            android:id="@+id/showFinalNormalMassege"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/showFinalDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/showFinalCategory"
-        android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_below="@+id/showFinalCurrentDate"
+            android:layout_marginStart="@dimen/text_margin_10dp"
+            android:layout_marginTop="@dimen/text_margin_10dp"
+            android:padding="@dimen/text_margin_10dp"
+            android:text="Normal Details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp" />
 
-        android:text="July 25 , 2018" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/showFinalCurrentDate"
+            android:layout_marginEnd="@dimen/text_margin_10dp"
+            android:layout_marginTop="@dimen/text_margin_10dp"
+            android:onClick="OnClickChangeNormalInformation"
+            android:padding="@dimen/text_margin_10dp"
+            android:src="@drawable/ic_edit_black_24dp" />
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/showFinalDate"
-        android:layout_marginTop="@dimen/text_margin_10dp">
-
-        <ListView
-            android:id="@+id/showFinalListview"
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardviewOne"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@null"
-            android:dividerHeight="0dp" />
-    </android.support.v7.widget.CardView>
-</RelativeLayout>
+            android:layout_below="@+id/showFinalNormalMassege"
+            android:layout_marginBottom="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/text_margin_10dp">
+
+            <ListView
+
+                android:id="@+id/showFinalListview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:dividerHeight="0dp" />
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/showFinalAdditonalMassege"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/cardviewOne"
+            android:layout_marginStart="@dimen/text_margin_10dp"
+            android:layout_marginTop="@dimen/text_margin_10dp"
+            android:padding="@dimen/text_margin_10dp"
+            android:text="Additional Details"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/cardviewOne"
+            android:layout_marginEnd="@dimen/text_margin_10dp"
+            android:layout_marginTop="@dimen/text_margin_10dp"
+            android:onClick="OnClickChangeAdditionalInformation"
+            android:padding="@dimen/text_margin_10dp"
+            android:src="@drawable/ic_edit_black_24dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardviewTwo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showFinalAdditonalMassege"
+            android:layout_marginTop="@dimen/text_margin_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/firstRealtive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin_10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="1"
+                        android:minWidth="200dp"
+                        android:text="Date"
+                        android:textSize="@dimen/textsize16sp" />
+
+                    <TextView
+                        android:id="@+id/showFinalDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="2"
+
+                        android:gravity="end"
+                        android:text="24/09/2017"
+                        android:textSize="@dimen/textsize16sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/text_margin_10dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="1"
+                        android:minWidth="200dp"
+                        android:text="Location"
+                        android:textSize="@dimen/textsize16sp" />
+
+                    <TextView
+                        android:id="@+id/showFinalLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="2"
+
+                        android:gravity="end"
+                        android:text="24/09/20tlkjaslkjgljlgjgljkgjljlgjfljlgfdsjljlgdjlkjgfjlgjlkjfgljlgfkjlgjfljlgflglgkfjldsgfklgfjglkfjlkgfjljglj17"
+                        android:textSize="@dimen/textsize16sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen5dp"
+                    android:layout_marginTop="@dimen/text_margin_10dp">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="1"
+                        android:minWidth="200dp"
+                        android:text="Additional "
+                        android:textSize="@dimen/textsize16sp" />
+
+                    <TextView
+                        android:id="@+id/showFinalAdditional"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/text_margin_10dp"
+                        android:layout_marginTop="@dimen/dimen5dp"
+                        android:layout_weight="2"
+                        android:gravity="end"
+                        android:text="24/09/20tlkjaslkjgljlgjgljkgjljlgjfljlgfdsjljlgdjlkjgfjlgjlkjfgljlgfkjlgjfljlgflglgkfjldsgfklgfjglkfjlkgfjljglj17"
+                        android:textSize="@dimen/textsize16sp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            android:layout_below="@+id/cardviewTwo"
+            android:layout_alignParentBottom="true"
+
+
+            android:layout_width="200dp"
+            android:layout_height="@dimen/dimen50dp"
+
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/text_margin_30dp"
+            android:background="@drawable/solid_button"
+            android:gravity="center"
+
+            android:text="Submit"
+
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/textsize16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</ScrollView>

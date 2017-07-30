@@ -13,6 +13,7 @@ import com.example.tarunkukreja.event_log_sponsor.Database.DatabaseSubCategory;
 import com.example.tarunkukreja.event_log_sponsor.Database.QuizActivity;
 import com.example.tarunkukreja.event_log_sponsor.Database.SubCategory;
 import com.example.tarunkukreja.event_log_sponsor.R;
+import com.example.tarunkukreja.event_log_sponsor.helper.Referral;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -49,7 +50,7 @@ public class SubCategoryActivity extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         if(!(bundle==null)){
-            String category=bundle.getString("category");
+            String category=bundle.getString(Referral.CATEGORY);
             quesList = db.getAllQuestions(category);
          //   toolbar.setTitle(category);
          //   toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -78,8 +79,8 @@ public class SubCategoryActivity extends AppCompatActivity {
 
                     Intent intent=new Intent(getApplicationContext(), QuizActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("userkey",userKey);
-                    intent.putExtra("category",optionSelected);
+                    intent.putExtra(Referral.USERKEY,userKey);
+                    intent.putExtra(Referral.CATEGORY,optionSelected);
                     startActivity(intent);
 
 
